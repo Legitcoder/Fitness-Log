@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EtE-Mo-5ZL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tQK-wt-eb5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Item 2-->
         <scene sceneID="re1-hV-V2c">
             <objects>
-                <viewController id="qBH-le-Wxp" sceneMemberID="viewController">
+                <viewController id="qBH-le-Wxp" customClass="CalorieCalculatorViewController" customModule="Fitness_Log" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fL4-L2-OqM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,18 +25,18 @@
             </objects>
             <point key="canvasLocation" x="1" y="-135"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Fitness Log Tab Bar View Controller-->
         <scene sceneID="X3g-lq-3or">
             <objects>
-                <tabBarController id="tQK-wt-eb5" sceneMemberID="viewController">
+                <tabBarController id="tQK-wt-eb5" customClass="FitnessLogTabBarViewController" customModule="Fitness_Log" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q34-RQ-xsZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="qBH-le-Wxp" kind="relationship" relationship="viewControllers" id="Wev-6N-pyA"/>
-                        <segue destination="EtE-Mo-5ZL" kind="relationship" relationship="viewControllers" id="7Tf-b8-Ns9"/>
+                        <segue destination="EtE-Mo-5ZL" kind="relationship" relationship="viewControllers" id="vr3-y0-TNC"/>
+                        <segue destination="qBH-le-Wxp" kind="relationship" relationship="viewControllers" id="bUV-b3-SIb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQj-BB-FA3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -52,17 +52,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t66-dR-Koo">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="375" height="101"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1FF-sP-ITl">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                             </collectionViewCell>
@@ -76,7 +76,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pk2-Yz-9qS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="844" y="-869"/>
+            <point key="canvasLocation" x="844" y="-869.41529235382313"/>
         </scene>
         <!--Item-->
         <scene sceneID="szW-As-sce">

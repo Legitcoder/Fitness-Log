@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FitnessLogsCollectionViewController: UICollectionViewController {
+class FitnessLogsCollectionViewController: UICollectionViewController, ExerciseControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController {
     
     private func updateViews() {
         guard isViewLoaded else { return }
-        title = "Sol 0"
+        title = "This is where the Date goes"
     }
     
     private func configureTitleView() {
@@ -101,5 +101,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController {
     
     }
     */
-
+    var exerciseController: ExerciseController? {
+        didSet {
+            print(exerciseController!)
+        }
+    }
 }

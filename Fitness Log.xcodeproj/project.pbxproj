@@ -12,6 +12,15 @@
 		A192746F21BC8106009E33FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A192746E21BC8106009E33FD /* Assets.xcassets */; };
 		A192747221BC8106009E33FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A192747021BC8106009E33FD /* LaunchScreen.storyboard */; };
 		A192747A21BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192747921BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift */; };
+		A192747C21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192747B21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift */; };
+		A192748021BCB77E009E33FD /* CalorieCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192747F21BCB77E009E33FD /* CalorieCalculatorViewController.swift */; };
+		A192748321BCB9B4009E33FD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748221BCB9B4009E33FD /* CoreDataStack.swift */; };
+		A192748621BCBE55009E33FD /* ExerciseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748521BCBE55009E33FD /* ExerciseController.swift */; };
+		A192748821BCC1D7009E33FD /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748721BCC1D6009E33FD /* UserController.swift */; };
+		A192748A21BCC51B009E33FD /* MealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748921BCC51B009E33FD /* MealController.swift */; };
+		A192748C21BCC534009E33FD /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748B21BCC534009E33FD /* SessionController.swift */; };
+		A192748F21BCC585009E33FD /* ExerciseControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748E21BCC585009E33FD /* ExerciseControllerProtocol.swift */; };
+		A192749121BCC5B7009E33FD /* UserControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749021BCC5B7009E33FD /* UserControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		A192747121BC8106009E33FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A192747321BC8107009E33FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A192747921BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessLogsCollectionViewController.swift; sourceTree = "<group>"; };
+		A192747B21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessLogTabBarViewController.swift; sourceTree = "<group>"; };
+		A192747F21BCB77E009E33FD /* CalorieCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCalculatorViewController.swift; sourceTree = "<group>"; };
+		A192748221BCB9B4009E33FD /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		A192748521BCBE55009E33FD /* ExerciseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseController.swift; sourceTree = "<group>"; };
+		A192748721BCC1D6009E33FD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		A192748921BCC51B009E33FD /* MealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealController.swift; sourceTree = "<group>"; };
+		A192748B21BCC534009E33FD /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
+		A192748E21BCC585009E33FD /* ExerciseControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseControllerProtocol.swift; sourceTree = "<group>"; };
+		A192749021BCC5B7009E33FD /* UserControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControllerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +72,63 @@
 		A192746621BC8105009E33FD /* Fitness Log */ = {
 			isa = PBXGroup;
 			children = (
-				A192746721BC8105009E33FD /* AppDelegate.swift */,
-				A192746B21BC8105009E33FD /* Main.storyboard */,
-				A192746E21BC8106009E33FD /* Assets.xcassets */,
-				A192747021BC8106009E33FD /* LaunchScreen.storyboard */,
-				A192747321BC8107009E33FD /* Info.plist */,
-				A192747921BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift */,
+				A192748D21BCC56F009E33FD /* Protocols */,
+				A192748421BCBE3C009E33FD /* Controllers */,
+				A192748121BCB9A2009E33FD /* Models */,
+				A192747E21BCB5FD009E33FD /* Resources */,
+				A192747D21BCB5DE009E33FD /* View Controllers */,
 			);
 			path = "Fitness Log";
+			sourceTree = "<group>";
+		};
+		A192747D21BCB5DE009E33FD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A192747B21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift */,
+				A192747921BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift */,
+				A192747F21BCB77E009E33FD /* CalorieCalculatorViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A192747E21BCB5FD009E33FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A192746E21BC8106009E33FD /* Assets.xcassets */,
+				A192746721BC8105009E33FD /* AppDelegate.swift */,
+				A192747321BC8107009E33FD /* Info.plist */,
+				A192747021BC8106009E33FD /* LaunchScreen.storyboard */,
+				A192746B21BC8105009E33FD /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A192748121BCB9A2009E33FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A192748221BCB9B4009E33FD /* CoreDataStack.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A192748421BCBE3C009E33FD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A192748521BCBE55009E33FD /* ExerciseController.swift */,
+				A192748721BCC1D6009E33FD /* UserController.swift */,
+				A192748921BCC51B009E33FD /* MealController.swift */,
+				A192748B21BCC534009E33FD /* SessionController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A192748D21BCC56F009E33FD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A192748E21BCC585009E33FD /* ExerciseControllerProtocol.swift */,
+				A192749021BCC5B7009E33FD /* UserControllerProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +202,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A192748321BCB9B4009E33FD /* CoreDataStack.swift in Sources */,
+				A192748C21BCC534009E33FD /* SessionController.swift in Sources */,
+				A192748621BCBE55009E33FD /* ExerciseController.swift in Sources */,
+				A192748A21BCC51B009E33FD /* MealController.swift in Sources */,
+				A192748021BCB77E009E33FD /* CalorieCalculatorViewController.swift in Sources */,
+				A192749121BCC5B7009E33FD /* UserControllerProtocol.swift in Sources */,
 				A192747A21BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift in Sources */,
+				A192748F21BCC585009E33FD /* ExerciseControllerProtocol.swift in Sources */,
+				A192748821BCC1D7009E33FD /* UserController.swift in Sources */,
+				A192747C21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift in Sources */,
 				A192746821BC8105009E33FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +360,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WH6XTF8JG;
-				INFOPLIST_FILE = "Fitness Log/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Fitness Log/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +378,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WH6XTF8JG;
-				INFOPLIST_FILE = "Fitness Log/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Fitness Log/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

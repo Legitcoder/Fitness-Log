@@ -7,8 +7,17 @@
 //
 
 import Foundation
-
+import CoreData
 
 class ExerciseController {
+    
+    private func createExercise(name: String, reps: Int16, sets: Int16) {
+        let exercise = Exercise(name: name, reps: reps, sets: sets)
+        exercises.append(exercise)
+        CoreDataController.saveToPersistent()
+    }
+    
+    
+    private(set) var exercises: [Exercise] = []
     
 }

@@ -7,8 +7,17 @@
 //
 
 import Foundation
-
+import CoreData
 
 class MealController {
+    
+    private func createMeal(calories: Int16, protein: Int16, carbs: Int16) {
+        let meal = Meal(calories: calories, protein: protein, carbs: carbs)
+        meals.append(meal)
+        CoreDataController.saveToPersistent()
+    }
+    
+    
+    private(set) var meals: [Meal] = []
     
 }

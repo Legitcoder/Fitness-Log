@@ -18,8 +18,11 @@ class FitnessLogTabBarViewController: UITabBarController {
     func passControllersToChildViewControllers() {
         for childVC in children {
             if let navVC = childVC as? UINavigationController {
-                if var initialVC = navVC.topViewController as? ExerciseControllerProtocol {
+                if var initialVC = navVC.topViewController as? FitnessLogProtocol {
                     initialVC.exerciseController = exerciseController
+                    initialVC.mealController = mealController
+                    initialVC.entryController = entryController
+                    initialVC.userController = userController
                 }
             }
             if var childVC = childVC as? UserControllerProtocol {
@@ -30,7 +33,7 @@ class FitnessLogTabBarViewController: UITabBarController {
     
     let exerciseController = ExerciseController()
     let userController = UserController()
-    let sessionController = SessionController()
+    let entryController = EntryController()
     let mealController = MealController()
 
 }

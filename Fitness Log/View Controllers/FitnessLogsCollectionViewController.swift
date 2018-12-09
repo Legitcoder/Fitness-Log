@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FitnessLogsCollectionViewController: UICollectionViewController, ExerciseControllerProtocol {
+class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLogProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,9 +101,11 @@ class FitnessLogsCollectionViewController: UICollectionViewController, ExerciseC
     
     }
     */
-    var exerciseController: ExerciseController? {
-        didSet {
-            print(exerciseController!)
-        }
-    }
+    var exerciseController: ExerciseController?
+    
+    var entryController: EntryController?
+    
+    var mealController: MealController?
+    
+    var userController: UserController?
 }

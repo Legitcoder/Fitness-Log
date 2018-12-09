@@ -7,8 +7,13 @@
 //
 
 import Foundation
-
+import CoreData
 
 class UserController {
+    
+    private func addEntry(user: User, entry: Entry) {
+        user.addToEntries(entry)
+        CoreDataController.saveToPersistent()
+    }
     
 }

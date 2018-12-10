@@ -14,4 +14,11 @@ extension Entry {
         self.init(context: context)
         self.date = date
     }
+    
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, Y"
+        let date = dateFormatter.string(from: (self.date)!)
+        return date
+    }
 }

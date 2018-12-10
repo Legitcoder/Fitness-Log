@@ -15,12 +15,17 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitleView()
+        setTodaysDate()
         updateViews()
+    }
+    
+    private func setTodaysDate() {
+        title = formattedDate(date: self.selectedDate)
     }
     
     private func updateViews() {
         guard isViewLoaded else { return }
-        title = "This is where the Date goes"
+        
     }
     
     private func configureTitleView() {
@@ -32,13 +37,37 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         navigationItem.setRightBarButton(nextItem, animated: false)
     }
     
+    let calendar = Calendar.current
+    
+    private func changeDate(dateOperator: DateOperator) -> String {
+        i += dateOperator.rawValue
+        let calendar = Calendar.current
+        let now = calendar.startOfDay(for: Date())
+        var components = DateComponents()
+        components.calendar = calendar
+        components.day = i
+        self.selectedDate = calendar.date(byAdding: components, to: now)!
+        return formattedDate(date: self.selectedDate)
+    }
+    
     @IBAction func goToNextDay(_ sender: Any?) {
-        print("Next Day")
+        let newDate = changeDate(dateOperator: .increment)
+        title = newDate
+    }
+    
+    private func formattedDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, Y"
+        let date = dateFormatter.string(from: date)
+        return date
     }
     
     @IBAction func goToPreviousDay(_ sender: Any?) {
-        print("Previous Day")
+        let newDate = changeDate(dateOperator: .decrement)
+        title = newDate
     }
+    
+    var i = 0
 
     /*
     // MARK: - Navigation
@@ -54,7 +83,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
 
@@ -101,6 +130,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     }
     */
+    
+    var selectedDate = Calendar.current.startOfDay(for: Date())
+    
     var exerciseController: ExerciseController?
     
     var entryController: EntryController?

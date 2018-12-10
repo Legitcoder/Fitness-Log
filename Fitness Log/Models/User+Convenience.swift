@@ -15,4 +15,5 @@ extension User {
         self.init(context: context)
         self.maintenanceCalories = maintenanceCalories
     }
+    
 }

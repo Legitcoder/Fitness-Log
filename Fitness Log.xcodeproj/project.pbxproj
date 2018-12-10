@@ -27,6 +27,7 @@
 		A192749C21BCD898009E33FD /* Exercise+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749B21BCD898009E33FD /* Exercise+Convenience.swift */; };
 		A192749E21BCD8FC009E33FD /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749D21BCD8FC009E33FD /* Entry+Convenience.swift */; };
 		A19274A021BCDEA3009E33FD /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749F21BCDEA3009E33FD /* CoreDataController.swift */; };
+		A19274AE21BE0405009E33FD /* DateOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274AD21BE0405009E33FD /* DateOperator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		A192749B21BCD898009E33FD /* Exercise+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+Convenience.swift"; sourceTree = "<group>"; };
 		A192749D21BCD8FC009E33FD /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		A192749F21BCDEA3009E33FD /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		A19274AD21BE0405009E33FD /* DateOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOperator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		A192746621BC8105009E33FD /* Fitness Log */ = {
 			isa = PBXGroup;
 			children = (
+				A19274AC21BE03F4009E33FD /* Enums */,
 				A192748D21BCC56F009E33FD /* Protocols */,
 				A192748421BCBE3C009E33FD /* Controllers */,
 				A192748121BCB9A2009E33FD /* Models */,
@@ -147,6 +150,14 @@
 				A192749221BCC7FF009E33FD /* FitnessLogProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A19274AC21BE03F4009E33FD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A19274AD21BE0405009E33FD /* DateOperator.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19274AE21BE0405009E33FD /* DateOperator.swift in Sources */,
 				A192748321BCB9B4009E33FD /* CoreDataStack.swift in Sources */,
 				A192749821BCCE80009E33FD /* Meal+Convenience.swift in Sources */,
 				A192748C21BCC534009E33FD /* EntryController.swift in Sources */,

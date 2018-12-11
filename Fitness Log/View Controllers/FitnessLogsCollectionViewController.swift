@@ -129,14 +129,12 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     }
     
     var meals: [Meal] {
-        let meals = fetchedResultsController!.fetchedObjects?.first?.meals?.allObjects as? [Meal] ?? []
+        let meals = entry?.meals?.allObjects as? [Meal] ?? []
         return meals
     }
     
     var exercises: [Exercise] {
-        print(fetchedResultsController!.fetchedObjects!.count)
-        let exercises = fetchedResultsController!.fetchedObjects?.first?.exercises?.allObjects as? [Exercise] ?? []
-        print(exercises.count)
+        let exercises = entry?.exercises?.allObjects as? [Exercise] ?? []
         return exercises
     }
     
@@ -198,6 +196,23 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     }
     */
+
+    
+    
+
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader{
+            if indexPath.section == 0 {
+                sectionHeader.sectionHeaderlabel.text = "Exercises"
+            } else {
+                sectionHeader.sectionHeaderlabel.text = "Meals"
+            }
+
+            return sectionHeader
+        }
+        return UICollectionReusableView()
+    }
     
     
     var fetchedResultsController: NSFetchedResultsController<Entry>?

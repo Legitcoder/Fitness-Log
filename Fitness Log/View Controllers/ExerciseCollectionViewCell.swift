@@ -22,8 +22,8 @@ class ExerciseCollectionViewCell: UICollectionViewCell {
         guard let exercise = exercise else { return }
         
         exerciseNameLabel.text = exercise.name
-        exerciseRepsLabel.text = String(exercise.reps)
-        exerciseSetsLabel.text = String(exercise.sets)
+        exerciseRepsLabel.text = "\(exercise.reps) reps"
+        exerciseSetsLabel.text = "\(exercise.sets) sets"
         exerciseWeightLabel.text = "\(exercise.weight) lbs"
     }
     

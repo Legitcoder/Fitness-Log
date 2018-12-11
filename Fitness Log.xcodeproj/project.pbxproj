@@ -32,6 +32,7 @@
 		A19274B221BF4528009E33FD /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B121BF4528009E33FD /* MealCollectionViewCell.swift */; };
 		A19274B421BF5EB9009E33FD /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */; };
 		A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */; };
+		A19274B921BF8A96009E33FD /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B821BF8A96009E33FD /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		A19274B121BF4528009E33FD /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
 		A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
+		A19274B821BF8A96009E33FD /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		A192746621BC8105009E33FD /* Fitness Log */ = {
 			isa = PBXGroup;
 			children = (
+				A19274B721BF8A63009E33FD /* Custom Classes */,
 				A19274AC21BE03F4009E33FD /* Enums */,
 				A192748D21BCC56F009E33FD /* Protocols */,
 				A192748421BCBE3C009E33FD /* Controllers */,
@@ -172,6 +175,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		A19274B721BF8A63009E33FD /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A19274B821BF8A96009E33FD /* SectionHeader.swift */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +258,7 @@
 				A192748321BCB9B4009E33FD /* CoreDataStack.swift in Sources */,
 				A192749821BCCE80009E33FD /* Meal+Convenience.swift in Sources */,
 				A192748C21BCC534009E33FD /* EntryController.swift in Sources */,
+				A19274B921BF8A96009E33FD /* SectionHeader.swift in Sources */,
 				A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */,
 				A192748621BCBE55009E33FD /* ExerciseController.swift in Sources */,
 				A19274B221BF4528009E33FD /* MealCollectionViewCell.swift in Sources */,

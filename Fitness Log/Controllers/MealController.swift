@@ -11,8 +11,8 @@ import CoreData
 
 class MealController {
     
-    private func createMeal(calories: Int16, protein: Int16, carbs: Int16) {
-        let meal = Meal(calories: calories, protein: protein, carbs: carbs)
+    func createMeal(name: String, calories: Int16, protein: Int16, carbs: Int16) {
+        let meal = Meal(name: name, calories: calories, protein: protein, carbs: carbs)
         meals.append(meal)
         CoreDataController.saveToPersistent()
     }

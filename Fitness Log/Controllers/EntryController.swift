@@ -11,19 +11,21 @@ import CoreData
 
 class EntryController {
     
-    private func createEntry(date: Date, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
-        let _ = Entry(date: date)
+    func createEntry(date: Date, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) -> Entry {
+        let entry = Entry(date: date)
         CoreDataController.saveToPersistent()
+        return entry
     }
     
-    private func addMeal(entry: Entry, meal: Meal) {
+    func addMeal(entry: Entry, meal: Meal) {
         entry.addToMeals(meal)
         CoreDataController.saveToPersistent()
     }
     
-    private func addExercise(entry: Entry, exercise: Exercise) {
+    func addExercise(entry: Entry, exercise: Exercise) {
         entry.addToExercises(exercise)
         CoreDataController.saveToPersistent()
     }
+    
     
 }

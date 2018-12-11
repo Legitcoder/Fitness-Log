@@ -11,7 +11,7 @@ import CoreData
 
 extension Meal {
     
-    convenience init(calories: Int16, protein: Int16, carbs: Int16, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(name: String, calories: Int16, protein: Int16, carbs: Int16, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.calories = calories
         self.protein = protein

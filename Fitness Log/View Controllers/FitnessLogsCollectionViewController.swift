@@ -16,32 +16,56 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         super.viewDidLoad()
         configureTitleView()
         setDate()
+        setupFetchedResultsController()
+        updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         updateViews()
     }
     
     private func setDate() {
-        let todaysDate = Calendar.current.startOfDay(for: Date())
-        if let selectedDate = selectedDate {
-            title = formattedDate(date: selectedDate)
-        } else {
-            title = formattedDate(date: todaysDate)
-        }
+        title = formattedDate(date: selectedDate)
     }
     
     private func updateViews() {
         guard isViewLoaded else { return }
+        setupFetchedResultsController()
+        collectionView.reloadData()
         
     }
     
     private func configureTitleView() {
         let prevItem = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(goToPreviousDay(_:)))
         
+        let rightAddBarButtonItem:UIBarButtonItem = UIBarButtonItem(title: "Add", style: UIBarButtonItem.Style.plain, target: self, action: #selector(addTapped(_:)))
+        
         let nextItem = UIBarButtonItem(title: ">", style: .plain, target: self, action: #selector(goToNextDay(_:)))
         
         navigationItem.setLeftBarButton(prevItem, animated: false)
-        navigationItem.setRightBarButton(nextItem, animated: false)
+        navigationItem.setRightBarButtonItems([nextItem, rightAddBarButtonItem ], animated: false)
     }
     
+    
+    @IBAction func addTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "New Entry", message: "Which kind of entry do you want to create?", preferredStyle: .actionSheet)
+        
+        let mealPostAction = UIAlertAction(title: "Meal", style: .default) { (_) in
+            self.performSegue(withIdentifier: "AddMeal", sender: self)
+        }
+        
+        let exercisePostAction = UIAlertAction(title: "Exercise", style: .default) { (_) in
+            self.performSegue(withIdentifier: "AddExercise", sender: self)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(mealPostAction)
+        alert.addAction(exercisePostAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
     
     let calendar = Calendar.current
     
@@ -53,11 +77,12 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         components.calendar = calendar
         components.day = i
         self.selectedDate = calendar.date(byAdding: components, to: now)!
-        return formattedDate(date: self.selectedDate!)
+        return formattedDate(date: self.selectedDate)
     }
     
     @IBAction func goToNextDay(_ sender: Any?) {
         let newDate = changeDate(dateOperator: .increment)
+        updateViews()
         title = newDate
     }
     
@@ -70,20 +95,25 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     @IBAction func goToPreviousDay(_ sender: Any?) {
         let newDate = changeDate(dateOperator: .decrement)
+        updateViews()
         title = newDate
     }
     
     var i = 0
 
-    /*
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "AddExercise" {
+            guard let destinationVC = segue.destination as? ExerciseDetailViewController else { return }
+            destinationVC.entryController = entryController
+            destinationVC.exerciseController = exerciseController
+            destinationVC.selectedDate = selectedDate
+        }
     }
-    */
+
 
     // MARK: UICollectionViewDataSource
 
@@ -93,14 +123,14 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     }
     
     var meals: [NSSet?] {
-        let entries = fetchedResultsController.fetchedObjects ?? []
+        let entries = fetchedResultsController!.fetchedObjects ?? []
         let meals = entries.map({ $0.meals })
         return meals
     }
     
-    var exercises: [NSSet?] {
-        let entries = fetchedResultsController.fetchedObjects ?? []
-        let exercises = entries.map({ $0.exercises })
+    var exercises: [Exercise] {
+        print(fetchedResultsController!.fetchedObjects!.count)
+        let exercises = fetchedResultsController!.fetchedObjects?.first?.exercises?.allObjects as? [Exercise] ?? []
         return exercises
     }
 
@@ -258,7 +288,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     }
     
     
-    lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
+    var fetchedResultsController: NSFetchedResultsController<Entry>?
+    
+    func setupFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         
         let moc = CoreDataStack.shared.mainContext
@@ -266,20 +298,18 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
+        let predicate = NSPredicate(format: "date == %@", self.selectedDate as NSDate)
+        fetchRequest.predicate = predicate
         
-        frc.delegate = self
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
         
-        try! frc.performFetch()
+        fetchedResultsController.delegate = self
         
-        return frc
-    }()
-    
-    var selectedDate: Date? {
-        didSet {
-            setDate()
-        }
+        try! fetchedResultsController.performFetch()
+        self.fetchedResultsController = fetchedResultsController
     }
+    
+    var selectedDate = Calendar.current.startOfDay(for: Date())
     
     var exerciseController: ExerciseController?
     

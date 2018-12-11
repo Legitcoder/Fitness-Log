@@ -11,10 +11,11 @@ import CoreData
 
 class ExerciseController {
     
-    private func createExercise(name: String, reps: Int16, sets: Int16) {
+    func createExercise(name: String, reps: Int16, sets: Int16) -> Exercise {
         let exercise = Exercise(name: name, reps: reps, sets: sets)
         exercises.append(exercise)
         CoreDataController.saveToPersistent()
+        return exercise
     }
     
     

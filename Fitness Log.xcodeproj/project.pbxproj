@@ -28,6 +28,10 @@
 		A192749E21BCD8FC009E33FD /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749D21BCD8FC009E33FD /* Entry+Convenience.swift */; };
 		A19274A021BCDEA3009E33FD /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749F21BCDEA3009E33FD /* CoreDataController.swift */; };
 		A19274AE21BE0405009E33FD /* DateOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274AD21BE0405009E33FD /* DateOperator.swift */; };
+		A19274B021BF44C1009E33FD /* ExerciseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274AF21BF44C1009E33FD /* ExerciseCollectionViewCell.swift */; };
+		A19274B221BF4528009E33FD /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B121BF4528009E33FD /* MealCollectionViewCell.swift */; };
+		A19274B421BF5EB9009E33FD /* ExerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */; };
+		A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		A192749D21BCD8FC009E33FD /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		A192749F21BCDEA3009E33FD /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		A19274AD21BE0405009E33FD /* DateOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOperator.swift; sourceTree = "<group>"; };
+		A19274AF21BF44C1009E33FD /* ExerciseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCollectionViewCell.swift; sourceTree = "<group>"; };
+		A19274B121BF4528009E33FD /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
+		A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseDetailViewController.swift; sourceTree = "<group>"; };
+		A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +107,13 @@
 		A192747D21BCB5DE009E33FD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */,
 				A192747B21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift */,
+				A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */,
 				A192747921BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift */,
 				A192747F21BCB77E009E33FD /* CalorieCalculatorViewController.swift */,
+				A19274AF21BF44C1009E33FD /* ExerciseCollectionViewCell.swift */,
+				A19274B121BF4528009E33FD /* MealCollectionViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -235,12 +247,15 @@
 				A192748321BCB9B4009E33FD /* CoreDataStack.swift in Sources */,
 				A192749821BCCE80009E33FD /* Meal+Convenience.swift in Sources */,
 				A192748C21BCC534009E33FD /* EntryController.swift in Sources */,
+				A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */,
 				A192748621BCBE55009E33FD /* ExerciseController.swift in Sources */,
+				A19274B221BF4528009E33FD /* MealCollectionViewCell.swift in Sources */,
 				A192748A21BCC51B009E33FD /* MealController.swift in Sources */,
 				A19274A021BCDEA3009E33FD /* CoreDataController.swift in Sources */,
 				A192748021BCB77E009E33FD /* CalorieCalculatorViewController.swift in Sources */,
 				A192749A21BCD62C009E33FD /* User+Convenience.swift in Sources */,
 				A192749121BCC5B7009E33FD /* UserControllerProtocol.swift in Sources */,
+				A19274B021BF44C1009E33FD /* ExerciseCollectionViewCell.swift in Sources */,
 				A192749621BCCE37009E33FD /* FitnessLog.xcdatamodeld in Sources */,
 				A192747A21BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift in Sources */,
 				A192748821BCC1D7009E33FD /* UserController.swift in Sources */,
@@ -249,6 +264,7 @@
 				A192746821BC8105009E33FD /* AppDelegate.swift in Sources */,
 				A192749C21BCD898009E33FD /* Exercise+Convenience.swift in Sources */,
 				A192749321BCC7FF009E33FD /* FitnessLogProtocol.swift in Sources */,
+				A19274B421BF5EB9009E33FD /* ExerciseDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

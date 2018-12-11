@@ -16,6 +16,16 @@ class MealDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    private func updateViews() {
+        print(meal!)
+    }
+    
+    var meal: Meal? {
+        didSet {
+            updateViews()
+        }
+    }
+    
 
     /*
     // MARK: - Navigation

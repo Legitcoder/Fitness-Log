@@ -13,15 +13,21 @@ class ExerciseCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var exerciseRepsLabel: UILabel!
     @IBOutlet weak var exerciseSetsLabel: UILabel!
+    @IBOutlet weak var exerciseWeightLabel: UILabel!
     
     
     
     
     private func updateViews() {
         guard let exercise = exercise else { return }
+        
+        exerciseNameLabel.text = exercise.name
+        exerciseRepsLabel.text = String(exercise.reps)
+        exerciseSetsLabel.text = String(exercise.sets)
+        exerciseWeightLabel.text = "\(exercise.weight) lbs"
     }
     
-    var exercise: NSSet? {
+    var exercise: Exercise? {
         didSet {
             updateViews()
         }

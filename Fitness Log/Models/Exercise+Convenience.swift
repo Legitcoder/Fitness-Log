@@ -10,10 +10,11 @@ import Foundation
 import CoreData
 
 extension Exercise {
-    convenience init(name: String, reps: Int16, sets: Int16, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(name: String, weight: Int16, reps: Int16, sets: Int16, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.name = name
         self.reps = reps
         self.sets = sets
+        self.weight = weight
     }
 }

@@ -10,4 +10,15 @@ import UIKit
 
 class MealCollectionViewCell: UICollectionViewCell {
     
+    
+    private func updateViews() {
+        print(meal!)
+    }
+    
+    var meal: Meal? {
+        didSet {
+            updateViews()
+        }
+    }
+    
 }

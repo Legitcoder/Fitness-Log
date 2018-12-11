@@ -11,8 +11,20 @@ import CoreData
 
 class ExerciseController {
     
-    func createExercise(name: String, reps: Int16, sets: Int16) -> Exercise {
-        let exercise = Exercise(name: name, reps: reps, sets: sets)
+//    init() {
+//        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Exercise")
+//        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+//
+//        do {
+//            let result = try CoreDataStack.shared.mainContext.execute(request)
+//        }
+//        catch {
+//            NSLog("\(error)")
+//        }
+//    }
+    
+    func createExercise(name: String, weight: Int16, reps: Int16, sets: Int16) -> Exercise {
+        let exercise = Exercise(name: name, weight: weight, reps: reps, sets: sets)
         exercises.append(exercise)
         CoreDataController.saveToPersistent()
         return exercise

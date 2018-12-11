@@ -10,6 +10,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sets" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="entry" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Entry" inverseName="exercises" inverseEntity="Entry" syncable="YES"/>
     </entity>
     <entity name="Meal" representedClassName="Meal" syncable="YES" codeGenerationType="class">
@@ -25,7 +26,7 @@
     </entity>
     <elements>
         <element name="Meal" positionX="-139.60546875" positionY="-169.67578125" width="128" height="118"/>
-        <element name="Exercise" positionX="-188.37890625" positionY="237.29296875" width="128" height="103"/>
+        <element name="Exercise" positionX="-188.37890625" positionY="237.29296875" width="128" height="118"/>
         <element name="Entry" positionX="435.671875" positionY="104.18359375" width="128" height="103"/>
         <element name="User" positionX="420.89453125" positionY="-266.41015625" width="128" height="73"/>
     </elements>

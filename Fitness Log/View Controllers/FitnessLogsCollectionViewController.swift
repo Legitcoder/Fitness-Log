@@ -9,18 +9,21 @@
 import UIKit
 import CoreData
 private let reuseIdentifier = "ExerciseCell"
+private let mealIdentifier = "MealCell"
 
 class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLogProtocol, NSFetchedResultsControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: mealIdentifier)
         configureTitleView()
         setDate()
-        setupFetchedResultsController()
         updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        configureTitleView()
+        setDate()
         updateViews()
     }
     
@@ -111,6 +114,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
             destinationVC.entryController = entryController
             destinationVC.exerciseController = exerciseController
             destinationVC.selectedDate = selectedDate
+            if let entry = entry {
+                destinationVC.entry = entry
+            }
         }
     }
 
@@ -122,34 +128,44 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         return 2
     }
     
-    var meals: [NSSet?] {
-        let entries = fetchedResultsController!.fetchedObjects ?? []
-        let meals = entries.map({ $0.meals })
+    var meals: [Meal] {
+        let meals = fetchedResultsController!.fetchedObjects?.first?.meals?.allObjects as? [Meal] ?? []
         return meals
     }
     
     var exercises: [Exercise] {
         print(fetchedResultsController!.fetchedObjects!.count)
         let exercises = fetchedResultsController!.fetchedObjects?.first?.exercises?.allObjects as? [Exercise] ?? []
+        print(exercises.count)
         return exercises
+    }
+    
+    var entry: Entry? {
+        return fetchedResultsController?.fetchedObjects?.first
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        if (section == 0) {
-            return exercises.count
+        if section == 0 {
+           return  exercises.count
         } else {
             return meals.count
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
+        
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ExerciseCollectionViewCell {
+            cell.exercise = exercises[indexPath.item]
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MealCollectionViewCell else { return UICollectionViewCell() }
+                cell.meal = meals[indexPath.item]
+                return cell
+        }
+        
     }
 
     // MARK: UICollectionViewDelegate
@@ -182,110 +198,6 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     }
     */
-    
-    var blockOperations: [BlockOperation] = []
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        
-        if type == NSFetchedResultsChangeType.insert {
-            print("Insert Object: \(newIndexPath)")
-            
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.insertItems(at: [newIndexPath!])
-                    }
-                })
-            )
-        }
-        else if type == NSFetchedResultsChangeType.update {
-            print("Update Object: \(indexPath)")
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.reloadItems(at: [indexPath!])
-                    }
-                })
-            )
-        }
-        else if type == NSFetchedResultsChangeType.move {
-            print("Move Object: \(indexPath)")
-            
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.moveItem(at: indexPath!, to: newIndexPath!)
-                    }
-                })
-            )
-        }
-        else if type == NSFetchedResultsChangeType.delete {
-            print("Delete Object: \(indexPath)")
-            
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.deleteItems(at: [indexPath!])
-                    }
-                })
-            )
-        }
-    }
-    
-    public func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        
-        if type == NSFetchedResultsChangeType.insert {
-            print("Insert Section: \(sectionIndex)")
-            
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.insertSections(NSIndexSet(index: sectionIndex) as IndexSet)
-                    }
-                })
-            )
-        }
-        else if type == NSFetchedResultsChangeType.update {
-            print("Update Section: \(sectionIndex)")
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.reloadSections(NSIndexSet(index: sectionIndex) as IndexSet)
-                    }
-                })
-            )
-        }
-        else if type == NSFetchedResultsChangeType.delete {
-            print("Delete Section: \(sectionIndex)")
-            
-            blockOperations.append(
-                BlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet)
-                    }
-                })
-            )
-        }
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        collectionView!.performBatchUpdates({ () -> Void in
-            for operation: BlockOperation in self.blockOperations {
-                operation.start()
-            }
-        }, completion: { (finished) -> Void in
-            self.blockOperations.removeAll(keepingCapacity: false)
-        })
-    }
-    
-    deinit {
-        for operation: BlockOperation in blockOperations {
-            operation.cancel()
-        }
-        
-        blockOperations.removeAll(keepingCapacity: false)
-    }
     
     
     var fetchedResultsController: NSFetchedResultsController<Entry>?

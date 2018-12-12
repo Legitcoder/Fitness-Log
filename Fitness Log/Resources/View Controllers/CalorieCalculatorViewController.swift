@@ -19,7 +19,14 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
     @IBOutlet weak var buttonDrop: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    var activityLevels = ["Sedentary", "Light", "Moderate", "Intense"]
+    @IBOutlet weak var ageTextField: UITextField!
+    
+    @IBOutlet weak var heightFeetTextField: UITextField!
+    
+    @IBOutlet weak var heightInchesTextField: UITextField!
+    
+    
+    var activityLevels = ["\(ActivityLevel.Sedentary)(No Exercise)", "\(ActivityLevel.Light)(1-3 Days)", "\(ActivityLevel.Moderate)(3-4 Days)", "\(ActivityLevel.Intense)(5-7 Days)"]
     
     @IBAction func chooseGender(_ sender: DLRadioButton) {
         if sender.tag == 1 {
@@ -29,6 +36,11 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
         }
     }
     
+    @IBAction func saveMaintenanceCalories(_ sender: Any) {
+        //guard let age = ageTe
+    }
+    
+    
     @IBAction func onClickDropButton(_ sender: Any) {
         
         UIView.animate(withDuration: 0.3) {
@@ -36,6 +48,8 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
         }
         isHidden = !isHidden
     }
+    
+    
             
         
     var userController: UserController? {

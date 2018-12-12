@@ -34,6 +34,7 @@
 		A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */; };
 		A19274B921BF8A96009E33FD /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B821BF8A96009E33FD /* SectionHeader.swift */; };
 		A19274BD21C09F68009E33FD /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A19274BC21C09F68009E33FD /* DLRadioButton.m */; };
+		A19274BF21C0BB79009E33FD /* ActivityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274BE21C0BB79009E33FD /* ActivityLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		A19274BA21C09F65009E33FD /* Fitness Log-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fitness Log-Bridging-Header.h"; sourceTree = "<group>"; };
 		A19274BB21C09F67009E33FD /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		A19274BC21C09F68009E33FD /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		A19274BE21C0BB79009E33FD /* ActivityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,6 @@
 				A192748421BCBE3C009E33FD /* Controllers */,
 				A192748121BCB9A2009E33FD /* Models */,
 				A192747E21BCB5FD009E33FD /* Resources */,
-				A192747D21BCB5DE009E33FD /* View Controllers */,
 				A19274BA21C09F65009E33FD /* Fitness Log-Bridging-Header.h */,
 			);
 			path = "Fitness Log";
@@ -134,6 +135,7 @@
 				A192747321BC8107009E33FD /* Info.plist */,
 				A192747021BC8106009E33FD /* LaunchScreen.storyboard */,
 				A192746B21BC8105009E33FD /* Main.storyboard */,
+				A192747D21BCB5DE009E33FD /* View Controllers */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				A19274AD21BE0405009E33FD /* DateOperator.swift */,
+				A19274BE21C0BB79009E33FD /* ActivityLevel.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				A192747A21BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift in Sources */,
 				A192748821BCC1D7009E33FD /* UserController.swift in Sources */,
 				A192747C21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift in Sources */,
+				A19274BF21C0BB79009E33FD /* ActivityLevel.swift in Sources */,
 				A192749E21BCD8FC009E33FD /* Entry+Convenience.swift in Sources */,
 				A192746821BC8105009E33FD /* AppDelegate.swift in Sources */,
 				A192749C21BCD898009E33FD /* Exercise+Convenience.swift in Sources */,

@@ -148,6 +148,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="heightFeetTextField:" destination="qBH-le-Wxp" eventType="editingDidEnd" id="TWL-O4-Eb9"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EPW-DG-Yjc">
                                 <rect key="frame" x="265" y="353" width="57" height="30"/>
@@ -175,10 +178,17 @@
                         <viewLayoutGuide key="safeArea" id="s8t-bH-ns9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Maintenance Calories" id="Lo3-om-nAG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="X7R-tE-uJq"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="X7R-tE-uJq">
+                            <connections>
+                                <action selector="saveMaintenanceCalories:" destination="qBH-le-Wxp" id="wNx-BD-9AU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="ageTextField" destination="GUw-vE-hhQ" id="dyn-U7-Acw"/>
                         <outlet property="buttonDrop" destination="LlW-GG-tgq" id="emM-j9-uBN"/>
+                        <outlet property="heightFeetTextField" destination="6uv-WD-V3t" id="wmg-Gw-Njb"/>
+                        <outlet property="heightInchesTextField" destination="EPW-DG-Yjc" id="0cY-Or-OOH"/>
                         <outlet property="tableView" destination="Kf9-h0-RUL" id="6UP-A8-5pI"/>
                     </connections>
                 </viewController>

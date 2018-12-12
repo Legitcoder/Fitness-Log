@@ -135,10 +135,10 @@
                                     <constraint firstItem="R0n-8M-8oe" firstAttribute="top" secondItem="1FF-sP-ITl" secondAttribute="top" id="xZy-jd-S3g"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="firstLabel" destination="WIj-fk-9ML" id="V7A-PN-1xh"/>
-                                    <outlet property="fourthLabel" destination="0zx-x5-aag" id="1TX-Iq-jq6"/>
-                                    <outlet property="secondLabel" destination="8If-xk-Jgp" id="iNv-n0-G0u"/>
-                                    <outlet property="thirdLabel" destination="8vH-FC-hhR" id="22x-XI-eJp"/>
+                                    <outlet property="exerciseNameLabel" destination="WIj-fk-9ML" id="HCW-6d-Srh"/>
+                                    <outlet property="exerciseRepsLabel" destination="8If-xk-Jgp" id="ras-Om-1Md"/>
+                                    <outlet property="exerciseSetsLabel" destination="8vH-FC-hhR" id="SgJ-ks-GW4"/>
+                                    <outlet property="exerciseWeightLabel" destination="0zx-x5-aag" id="yv0-gK-wfh"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MealCell" id="197-eC-s3n" customClass="MealCollectionViewCell" customModule="Fitness_Log" customModuleProvider="target">

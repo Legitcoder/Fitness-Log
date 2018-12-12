@@ -10,20 +10,20 @@ import UIKit
 
 class ExerciseCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var firstLabel: UILabel!
-    @IBOutlet weak var secondLabel: UILabel!
-    @IBOutlet weak var thirdLabel: UILabel!
-    @IBOutlet weak var fourthLabel: UILabel!
+    @IBOutlet weak var exerciseNameLabel: UILabel!
+    @IBOutlet weak var exerciseRepsLabel: UILabel!
+    @IBOutlet weak var exerciseSetsLabel: UILabel!
+    @IBOutlet weak var exerciseWeightLabel: UILabel!
     
     
     
     
     private func updateViews() {
         if let exercise = exercise {
-            firstLabel.text = exercise.name
-            secondLabel.text = "\(exercise.reps) reps"
-            thirdLabel.text = "\(exercise.sets) sets"
-            fourthLabel.text = "\(exercise.weight) lbs"
+            exerciseNameLabel.text = exercise.name
+            exerciseRepsLabel.text = "\(exercise.reps) reps"
+            exerciseSetsLabel.text = "\(exercise.sets) sets"
+            exerciseWeightLabel.text = "\(exercise.weight) lbs"
         } else if let meal = meal  {
             
         }

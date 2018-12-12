@@ -51,7 +51,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     
     @IBAction func addTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "New Entry", message: "Which kind of entry do you want to create?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "New Entry", message: "What kind of entry do you want to create?", preferredStyle: .actionSheet)
         
         let mealPostAction = UIAlertAction(title: "Meal", style: .default) { (_) in
             self.performSegue(withIdentifier: "AddMeal", sender: self)

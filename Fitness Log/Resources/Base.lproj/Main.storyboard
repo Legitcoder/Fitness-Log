@@ -136,9 +136,9 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="exerciseNameLabel" destination="WIj-fk-9ML" id="HCW-6d-Srh"/>
-                                    <outlet property="exerciseRepsLabel" destination="8If-xk-Jgp" id="ras-Om-1Md"/>
+                                    <outlet property="exerciseRepsLabel" destination="0zx-x5-aag" id="Wux-lP-wKr"/>
                                     <outlet property="exerciseSetsLabel" destination="8vH-FC-hhR" id="SgJ-ks-GW4"/>
-                                    <outlet property="exerciseWeightLabel" destination="0zx-x5-aag" id="yv0-gK-wfh"/>
+                                    <outlet property="exerciseWeightLabel" destination="8If-xk-Jgp" id="a0V-Bf-uWD"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MealCell" id="197-eC-s3n" customClass="MealCollectionViewCell" customModule="Fitness_Log" customModuleProvider="target">

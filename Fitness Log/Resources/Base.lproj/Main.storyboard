@@ -194,23 +194,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7W-fi-dlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907.24637681159425" y="-135.32608695652175"/>
+            <point key="canvasLocation" x="1814.4927536231885" y="-135.32608695652175"/>
         </scene>
-        <!--Calendar-->
+        <!--Ib Calendar Data Source-->
         <scene sceneID="gzo-aE-fR3">
             <objects>
                 <viewController id="Ovn-Sz-xq9" customClass="CalendarViewController" customModule="Fitness_Log" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AdD-t0-BY8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LSn-8V-dxw" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="204.66666666666663" width="414" height="327"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="327" id="c4x-JY-gmf"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dvh-cl-1KB">
+                                    <size key="itemSize" width="132" height="83"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCell" id="0z6-b9-DlM" customClass="CustomCell" customModule="Fitness_Log" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="132" height="83"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="132" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUE-ng-RT3">
+                                                    <rect key="frame" x="45" y="31" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="SUE-ng-RT3" firstAttribute="centerX" secondItem="0z6-b9-DlM" secondAttribute="centerX" id="JVW-eu-0O4"/>
+                                            <constraint firstItem="SUE-ng-RT3" firstAttribute="centerY" secondItem="0z6-b9-DlM" secondAttribute="centerY" id="iTd-YB-Na0"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="SUE-ng-RT3" id="8Ou-lH-1Sn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="ibCalendarDataSource" destination="Ovn-Sz-xq9" id="Uwe-po-RaF"/>
+                                    <outlet property="ibCalendarDelegate" destination="Ovn-Sz-xq9" id="8qv-Ve-kwq"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LSn-8V-dxw" firstAttribute="leading" secondItem="AdD-t0-BY8" secondAttribute="leading" id="2oT-g5-40B"/>
+                            <constraint firstItem="LSn-8V-dxw" firstAttribute="centerY" secondItem="AdD-t0-BY8" secondAttribute="centerY" id="asl-cL-RVi"/>
+                            <constraint firstItem="LSn-8V-dxw" firstAttribute="centerX" secondItem="AdD-t0-BY8" secondAttribute="centerX" id="hgZ-XR-aS1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qbu-4t-ho3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" id="w7U-4l-0W9"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="5PG-Ep-s4W"/>
+                    <connections>
+                        <outlet property="calendarView" destination="LSn-8V-dxw" id="KbR-Ly-Oca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIe-pO-yl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="249"/>
+            <point key="canvasLocation" x="0.0" y="248.64130434782609"/>
         </scene>
         <!--Fitness Log Tab Bar View Controller-->
         <scene sceneID="X3g-lq-3or">
@@ -223,7 +275,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="EtE-Mo-5ZL" kind="relationship" relationship="viewControllers" id="vr3-y0-TNC"/>
-                        <segue destination="Ovn-Sz-xq9" kind="relationship" relationship="viewControllers" id="THl-OH-7sC"/>
+                        <segue destination="rBs-hK-8ok" kind="relationship" relationship="viewControllers" id="THl-OH-7sC"/>
                         <segue destination="m2E-uk-cf7" kind="relationship" relationship="viewControllers" id="gmg-wq-Q0t"/>
                     </connections>
                 </tabBarController>
@@ -585,7 +637,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70C-xs-H69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2684.057971014493" y="-392.11956521739131"/>
+            <point key="canvasLocation" x="3591.3043478260875" y="-392.11956521739131"/>
         </scene>
         <!--Log-->
         <scene sceneID="szW-As-sce">
@@ -623,7 +675,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2H-Uo-4Os" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="-135.32608695652175"/>
+            <point key="canvasLocation" x="907.24637681159425" y="-135.32608695652175"/>
+        </scene>
+        <!--Calendar-->
+        <scene sceneID="vf3-Te-UXt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rBs-hK-8ok" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" id="w7U-4l-0W9"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="knM-vc-HIn">
+                        <rect key="frame" x="0.0" y="20" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Ovn-Sz-xq9" kind="relationship" relationship="rootViewController" id="fRt-Nx-iig"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xcc-gU-QTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-907.24637681159425" y="248.64130434782609"/>
         </scene>
     </scenes>
     <resources>

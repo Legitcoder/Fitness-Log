@@ -117,7 +117,13 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
             if let entry = entry {
                 destinationVC.entry = entry
             }
+        } else if segue.identifier == "AddMeal" {
+            guard let destinationVC = segue.destination as? MealDetailViewController else { return }
+            destinationVC.mealController = mealController
+            destinationVC.selectedDate = selectedDate
+            destinationVC.entryController = entryController
         }
+        
     }
 
 
@@ -204,9 +210,10 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader{
             if indexPath.section == 0 {
-                sectionHeader.sectionHeaderlabel.text = "Exercises"
+                !exercises.isEmpty ? (sectionHeader.sectionHeaderlabel.text = "Exercises") :                     (sectionHeader.sectionHeaderlabel.text = "")
+
             } else {
-                sectionHeader.sectionHeaderlabel.text = "Meals"
+                !meals.isEmpty ? (sectionHeader.sectionHeaderlabel.text = "Meals") :                     (sectionHeader.sectionHeaderlabel.text = "")
             }
 
             return sectionHeader

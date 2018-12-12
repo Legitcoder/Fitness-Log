@@ -16,15 +16,40 @@ class MealDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private func updateViews() {
-        print(meal!)
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var caloriesTextField: UITextField!
+    
+    @IBOutlet weak var carbsTextField: UITextField!
+    
+    @IBOutlet weak var proteinTextField: UITextField!
+    
+    @IBAction func saveMeal(_ sender: Any) {
+        guard let name = nameTextField.text,
+            let calories = caloriesTextField.text,
+            let carbs = carbsTextField.text,
+            let protein = proteinTextField.text,
+            let selectedDate = selectedDate else { return }
+        if let entry = entry {
+            guard let meal = mealController?.createMeal(name: name, calories: Int16(calories)!, protein: Int16(protein)!, carbs: Int16(carbs)!) else { return }
+            entryController?.addMeal(entry: entry, meal: meal)
+        } else {
+            let entry = (entryController?.createEntry(date: selectedDate))!
+            guard let meal = mealController?.createMeal(name: name, calories: Int16(calories)!, protein: Int16(protein)!, carbs: Int16(carbs)!) else { return }
+                entryController?.addMeal(entry: entry, meal: meal)
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
-    var meal: Meal? {
-        didSet {
-            updateViews()
-        }
+    
+    private func updateViews() {
+        
     }
+    
+    var entry: Entry?
+    var mealController: MealController?
+    var entryController: EntryController?
+    var selectedDate: Date?
     
 
     /*

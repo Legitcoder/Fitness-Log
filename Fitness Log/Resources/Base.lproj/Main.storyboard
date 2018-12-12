@@ -199,7 +199,7 @@
         <!--Calendar-->
         <scene sceneID="gzo-aE-fR3">
             <objects>
-                <viewController id="Ovn-Sz-xq9" sceneMemberID="viewController">
+                <viewController id="Ovn-Sz-xq9" customClass="CalendarViewController" customModule="Fitness_Log" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AdD-t0-BY8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

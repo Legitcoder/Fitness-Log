@@ -35,6 +35,8 @@
 		A19274B921BF8A96009E33FD /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274B821BF8A96009E33FD /* SectionHeader.swift */; };
 		A19274BD21C09F68009E33FD /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A19274BC21C09F68009E33FD /* DLRadioButton.m */; };
 		A19274BF21C0BB79009E33FD /* ActivityLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274BE21C0BB79009E33FD /* ActivityLevel.swift */; };
+		A19274C221C0C912009E33FD /* JTAppleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19274C121C0C912009E33FD /* JTAppleCalendar.framework */; };
+		A19274C521C0CA38009E33FD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19274C421C0CA38009E33FD /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		A19274BB21C09F67009E33FD /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		A19274BC21C09F68009E33FD /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		A19274BE21C0BB79009E33FD /* ActivityLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLevel.swift; sourceTree = "<group>"; };
+		A19274C121C0C912009E33FD /* JTAppleCalendar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JTAppleCalendar.framework; path = Carthage/Build/iOS/JTAppleCalendar.framework; sourceTree = "<group>"; };
+		A19274C421C0CA38009E33FD /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19274C221C0C912009E33FD /* JTAppleCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +93,7 @@
 			children = (
 				A192746621BC8105009E33FD /* Fitness Log */,
 				A192746521BC8105009E33FD /* Products */,
+				A19274C021C0C912009E33FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +122,7 @@
 		A192747D21BCB5DE009E33FD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A19274C421C0CA38009E33FD /* CalendarViewController.swift */,
 				A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */,
 				A192747B21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift */,
 				A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */,
@@ -193,6 +200,14 @@
 			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
+		A19274C021C0C912009E33FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A19274C121C0C912009E33FD /* JTAppleCalendar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,6 +218,7 @@
 				A192746021BC8105009E33FD /* Sources */,
 				A192746121BC8105009E33FD /* Frameworks */,
 				A192746221BC8105009E33FD /* Resources */,
+				A19274C321C0C920009E33FD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -260,6 +276,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A19274C321C0C920009E33FD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Carthage/Build/iOS/JTAppleCalendar.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A192746021BC8105009E33FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -273,6 +311,7 @@
 				A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */,
 				A192748621BCBE55009E33FD /* ExerciseController.swift in Sources */,
 				A19274B221BF4528009E33FD /* MealCollectionViewCell.swift in Sources */,
+				A19274C521C0CA38009E33FD /* CalendarViewController.swift in Sources */,
 				A192748A21BCC51B009E33FD /* MealController.swift in Sources */,
 				A19274A021BCDEA3009E33FD /* CoreDataController.swift in Sources */,
 				A192748021BCB77E009E33FD /* CalorieCalculatorViewController.swift in Sources */,
@@ -438,6 +477,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WH6XTF8JG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Fitness Log/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -459,6 +502,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WH6XTF8JG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Fitness Log/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

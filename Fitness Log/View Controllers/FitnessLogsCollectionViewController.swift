@@ -216,10 +216,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader{
             if indexPath.section == 0 {
-                !exercises.isEmpty ? (sectionHeader.sectionHeaderlabel.text = "Exercises") :                     (sectionHeader.sectionHeaderlabel.text = "")
-
+                !exercises.isEmpty ? (sectionHeader.sectionHeaderlabel.text = "Exercises") : (sectionHeader.sectionHeaderlabel.text = "")
             } else {
-                !meals.isEmpty ? (sectionHeader.sectionHeaderlabel.text = "Meals") :                     (sectionHeader.sectionHeaderlabel.text = "")
+                !meals.isEmpty ? (sectionHeader.sectionHeaderlabel.text = "Meals") : (sectionHeader.sectionHeaderlabel.text = "")
             }
 
             return sectionHeader

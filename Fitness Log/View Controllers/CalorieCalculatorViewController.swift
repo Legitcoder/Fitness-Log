@@ -10,6 +10,16 @@ import UIKit
 
 class CalorieCalculatorViewController: UIViewController, UserControllerProtocol {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.isHidden = isHidden
+    }
+    var isHidden: Bool = true
+    @IBOutlet weak var buttonDrop: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var activityLevels = ["Sedentary", "Light", "Moderate", "Intense"]
     
     @IBAction func chooseGender(_ sender: DLRadioButton) {
         if sender.tag == 1 {
@@ -19,7 +29,15 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
         }
     }
     
-    
+    @IBAction func onClickDropButton(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.3) {
+            self.tableView.isHidden = !self.isHidden
+        }
+        isHidden = !isHidden
+    }
+            
+        
     var userController: UserController? {
         didSet {
             print(userController!)
@@ -27,3 +45,25 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
     }
 
 }
+
+extension CalorieCalculatorViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return activityLevels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = activityLevels[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let activityLevel = activityLevels[indexPath.row]
+        buttonDrop.setTitle(activityLevel, for: .normal)
+        onClickDropButton(self)
+    }
+    
+    
+}
+
+

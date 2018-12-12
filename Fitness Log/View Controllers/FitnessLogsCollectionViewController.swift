@@ -8,14 +8,14 @@
 
 import UIKit
 import CoreData
-private let reuseIdentifier = "ExerciseCell"
-private let mealIdentifier = "MealCell"
+private let exerciseCellIdentifier = "ExerciseCell"
+private let mealCellIdentifier = "MealCell"
 
 class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLogProtocol, NSFetchedResultsControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: mealIdentifier)
+        //self.collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: mealIdentifier)
         configureTitleView()
         setDate()
         updateViews()
@@ -122,6 +122,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
             destinationVC.mealController = mealController
             destinationVC.selectedDate = selectedDate
             destinationVC.entryController = entryController
+            if let entry = entry {
+                destinationVC.entry = entry
+            }
         }
         
     }
@@ -136,6 +139,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     var meals: [Meal] {
         let meals = entry?.meals?.allObjects as? [Meal] ?? []
+        print(meals)
         return meals
     }
     
@@ -160,15 +164,17 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ExerciseCollectionViewCell {
+        if indexPath.section == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: exerciseCellIdentifier, for: indexPath) as? ExerciseCollectionViewCell else { return UICollectionViewCell() }
             cell.exercise = exercises[indexPath.item]
             return cell
-        } else {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? MealCollectionViewCell else { return UICollectionViewCell() }
-                cell.meal = meals[indexPath.item]
-                return cell
+        } else if indexPath.section == 1 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mealCellIdentifier, for: indexPath) as? MealCollectionViewCell else { return UICollectionViewCell() }
+            cell.meal = meals[indexPath.item]
+            return cell
         }
+        
+        return UICollectionViewCell()
         
     }
 

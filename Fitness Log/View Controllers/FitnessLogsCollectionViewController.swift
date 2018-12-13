@@ -19,6 +19,14 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         configureTitleView()
         setDate()
         updateViews()
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeLeft.direction = .left
+        self.view.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+        swipeRight.direction = .right
+        self.view.addGestureRecognizer(swipeRight)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +55,15 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         
         navigationItem.setLeftBarButton(prevItem, animated: false)
         navigationItem.setRightBarButtonItems([nextItem, rightAddBarButtonItem ], animated: false)
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+            goToPreviousDay(self)
+        }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+            goToNextDay(self)
+        }
     }
     
     

@@ -326,6 +326,7 @@
                                                 <connections>
                                                     <outlet property="dateLabel" destination="SUE-ng-RT3" id="8Ou-lH-1Sn"/>
                                                     <outlet property="selectedView" destination="QGc-zf-iBK" id="cpu-9t-MOO"/>
+                                                    <segue destination="o6c-CV-veS" kind="unwind" unwindAction="comingFromFitnessLogCollectionUnwindSegueWithSegue:" id="hEC-c7-f6M"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -357,8 +358,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIe-pO-yl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="o6c-CV-veS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="248.64130434782609"/>
+            <point key="canvasLocation" x="19" y="-89"/>
         </scene>
         <!--Fitness Log Tab Bar View Controller-->
         <scene sceneID="X3g-lq-3or">

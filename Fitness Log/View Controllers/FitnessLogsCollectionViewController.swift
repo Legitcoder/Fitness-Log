@@ -16,10 +16,6 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: mealIdentifier)
-        configureTitleView()
-        setDate()
-        updateViews()
-        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
@@ -31,16 +27,21 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     override func viewWillAppear(_ animated: Bool) {
         configureTitleView()
-        setDate()
-        updateViews()
+    }
+    
+    @IBAction func comingFromFitnessLogCollectionUnwindSegue(segue: UIStoryboardSegue) {
+        if selectedDate == nil {
+            configureTitleView()
+        }
     }
     
     private func setDate() {
-        title = formattedDate(date: selectedDate)
+        title = formattedDate(date: selectedDate ?? todaysDate)
     }
     
     private func updateViews() {
-        guard isViewLoaded else { return }
+        //guard isViewLoaded else { return }
+        setDate()
         setupFetchedResultsController()
         collectionView.reloadData()
         
@@ -55,6 +56,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         
         navigationItem.setLeftBarButton(prevItem, animated: false)
         navigationItem.setRightBarButtonItems([nextItem, rightAddBarButtonItem ], animated: false)
+        updateViews()
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -97,7 +99,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         components.calendar = calendar
         components.day = i
         self.selectedDate = calendar.date(byAdding: components, to: now)!
-        return formattedDate(date: self.selectedDate)
+        return formattedDate(date: self.selectedDate ?? todaysDate)
     }
     
     @IBAction func goToNextDay(_ sender: Any?) {
@@ -225,10 +227,6 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     }
     */
-
-    
-    
-
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as? SectionHeader{
@@ -243,6 +241,10 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         return UICollectionReusableView()
     }
     
+    var todaysDate: Date {
+        return Calendar.current.startOfDay(for: Date())
+    }
+    
     
     var fetchedResultsController: NSFetchedResultsController<Entry>?
     
@@ -254,7 +256,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        let predicate = NSPredicate(format: "date == %@", self.selectedDate as NSDate)
+        let predicate = NSPredicate(format: "date == %@", (self.selectedDate ?? todaysDate) as NSDate)
         fetchRequest.predicate = predicate
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: moc, sectionNameKeyPath: nil, cacheName: nil)
@@ -265,7 +267,11 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         self.fetchedResultsController = fetchedResultsController
     }
     
-    var selectedDate = Calendar.current.startOfDay(for: Date())
+    var selectedDate: Date? {
+        didSet {
+            configureTitleView()
+        }
+    }
     
     var exerciseController: ExerciseController?
     

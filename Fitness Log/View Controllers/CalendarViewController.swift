@@ -8,11 +8,30 @@
 
 import UIKit
 import JTAppleCalendar
-
+import CoreData
 class CalendarViewController: UIViewController {
 
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var month: UILabel!
+    
+    
+    var entries: [Entry] {
+        
+        let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        do {
+            return try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching entry from moc: \(error)")
+            return []
+        }
+    }
+    
+    var entryDates: [Date] {
+        return entries.map({ $0.date! })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +39,11 @@ class CalendarViewController: UIViewController {
         calendarView.calendarDataSource = self
         calendarView.scrollToDate(Date(), animateScroll: false)
         setupCalendarView()
-     
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CustomCell else { return }
-        //validCell.selectedView.isHidden = cellState.isSelected ? false : true
+        validCell.selectedView.isHidden = cellState.isSelected ? false : true
     }
     
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState) {
@@ -112,21 +130,24 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
+        if entryDates.contains(date) {
+            cell.selectedView.isHidden = false
+        }
         
         return cell
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
+        //handleCellSelected(view: cell, cellState: cellState)
+        //handleCellTextColor(view: cell, cellState: cellState)
         let navVC = self.tabBarController?.viewControllers?.first as! UINavigationController
         let firstTab = navVC.topViewController as! FitnessLogsCollectionViewController
         firstTab.selectedDate = date
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
+        //handleCellSelected(view: cell, cellState: cellState)
+        //handleCellTextColor(view: cell, cellState: cellState)
     }
 }
 

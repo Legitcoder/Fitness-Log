@@ -8,12 +8,13 @@
 
 import UIKit
 
-class CalorieCalculatorViewController: UIViewController, UserControllerProtocol {
+class CalorieCalculatorViewController: UIViewController, UserProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.isHidden = isHidden
+        updateViews()
     }
     var isHidden: Bool = true
     @IBOutlet weak var buttonDrop: UIButton!
@@ -35,15 +36,17 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
         gender = sender.tag == 1 ? "Male" : "Female"
     }
     func updateViews() {
-        guard let user = user else {
+        guard let user = user, isViewLoaded else {
             NSLog("Optional User in CalorieCalculatorViewController wasn't Set")
             return
         }
+        
         let feet = "\(user.height / 12)"
         let inches = "\(user.height % 12)"
         ageTextField.text = "\(user.age)"
         heightFeetTextField.text = feet
         heightInchesTextField.text = inches
+        weightTextField.text = "\(user.weight)"
         buttonDrop.setTitle(user.activityLevel, for: .normal)
         maintenanceCaloriesLabel.text = "\(user.maintenanceCalories) Calories"
     }

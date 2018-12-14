@@ -19,7 +19,7 @@
 		A192748821BCC1D7009E33FD /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748721BCC1D6009E33FD /* UserController.swift */; };
 		A192748A21BCC51B009E33FD /* MealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748921BCC51B009E33FD /* MealController.swift */; };
 		A192748C21BCC534009E33FD /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192748B21BCC534009E33FD /* EntryController.swift */; };
-		A192749121BCC5B7009E33FD /* UserControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749021BCC5B7009E33FD /* UserControllerProtocol.swift */; };
+		A192749121BCC5B7009E33FD /* UserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749021BCC5B7009E33FD /* UserProtocol.swift */; };
 		A192749321BCC7FF009E33FD /* FitnessLogProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749221BCC7FF009E33FD /* FitnessLogProtocol.swift */; };
 		A192749621BCCE37009E33FD /* FitnessLog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A192749421BCCE37009E33FD /* FitnessLog.xcdatamodeld */; };
 		A192749821BCCE80009E33FD /* Meal+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192749721BCCE80009E33FD /* Meal+Convenience.swift */; };
@@ -55,7 +55,7 @@
 		A192748721BCC1D6009E33FD /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		A192748921BCC51B009E33FD /* MealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealController.swift; sourceTree = "<group>"; };
 		A192748B21BCC534009E33FD /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
-		A192749021BCC5B7009E33FD /* UserControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserControllerProtocol.swift; sourceTree = "<group>"; };
+		A192749021BCC5B7009E33FD /* UserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocol.swift; sourceTree = "<group>"; };
 		A192749221BCC7FF009E33FD /* FitnessLogProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessLogProtocol.swift; sourceTree = "<group>"; };
 		A192749521BCCE37009E33FD /* Fitness Log.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Fitness Log.xcdatamodel"; sourceTree = "<group>"; };
 		A192749721BCCE80009E33FD /* Meal+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meal+Convenience.swift"; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		A192748D21BCC56F009E33FD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				A192749021BCC5B7009E33FD /* UserControllerProtocol.swift */,
+				A192749021BCC5B7009E33FD /* UserProtocol.swift */,
 				A192749221BCC7FF009E33FD /* FitnessLogProtocol.swift */,
 			);
 			path = Protocols;
@@ -320,7 +320,7 @@
 				A192748021BCB77E009E33FD /* CalorieCalculatorViewController.swift in Sources */,
 				A192749A21BCD62C009E33FD /* User+Convenience.swift in Sources */,
 				A19274C721C0CCDD009E33FD /* CustomCell.swift in Sources */,
-				A192749121BCC5B7009E33FD /* UserControllerProtocol.swift in Sources */,
+				A192749121BCC5B7009E33FD /* UserProtocol.swift in Sources */,
 				A19274BD21C09F68009E33FD /* DLRadioButton.m in Sources */,
 				A19274B021BF44C1009E33FD /* ExerciseCollectionViewCell.swift in Sources */,
 				A192749621BCCE37009E33FD /* FitnessLog.xcdatamodeld in Sources */,

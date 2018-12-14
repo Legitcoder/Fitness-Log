@@ -29,6 +29,27 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        calendarView.reloadData()
+    }
+    
+    var users: [User] {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        do {
+            return try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching entry from moc: \(error)")
+            return []
+        }
+    }
+    
+    var user: User? {
+        return users.first
+    }
+    
     var entryDates: [Date] {
         return entries.map({ $0.date! })
     }
@@ -43,7 +64,7 @@ class CalendarViewController: UIViewController {
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {
         guard let validCell = view as? CustomCell else { return }
-        validCell.selectedView.isHidden = cellState.isSelected ? false : true
+        validCell.selectedView.isHidden = true
     }
     
     func handleCellTextColor(view: JTAppleCell?, cellState: CellState) {
@@ -87,7 +108,6 @@ class CalendarViewController: UIViewController {
     let outsideMonthColor = UIColor.lightGray.withAlphaComponent(0.5)
     let monthColor = UIColor.black
     let selectedMonthColor = UIColor.darkGray
-    let currentDateSelectedViewColor = UIColor(colorWithHexValue: 0x4e3f5d)
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     let formatter = DateFormatter()
@@ -130,9 +150,31 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
         
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
-        if entryDates.contains(date) {
-            cell.selectedView.isHidden = false
+        if let user = user {
+            if entryDates.contains(date) {
+                let entry = entries.filter({ $0.date == date }).first
+                let meals = entry?.meals?.allObjects as? [Meal] ?? []
+                let calories = meals.map({ $0.calories })
+                let totalCalories = calories.reduce(0, +)
+                if totalCalories > user.maintenanceCalories {
+                    cell.selectedView.backgroundColor = UIColor.green
+                    cell.selectedView.isHidden = false
+                }
+                else {
+                    cell.selectedView.backgroundColor = UIColor.red
+                    cell.selectedView.isHidden = false
+                }
+
+            }
+        } else {
+            if entryDates.contains(date) {
+                cell.selectedView.backgroundColor = UIColor.red
+                cell.selectedView.isHidden = false
+            }
+
         }
+
+
         
         return cell
     }
@@ -148,17 +190,5 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         //handleCellSelected(view: cell, cellState: cellState)
         //handleCellTextColor(view: cell, cellState: cellState)
-    }
-}
-
-
-extension UIColor {
-    convenience init(colorWithHexValue value: Int, alpha: CGFloat = 1.0) {
-        self.init(
-            red: CGFloat((value & 0xFF000) >> 16) / 255.0,
-            green: CGFloat((value & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(value & 0x0000FF) / 255.0,
-            alpha: alpha
-        )
     }
 }

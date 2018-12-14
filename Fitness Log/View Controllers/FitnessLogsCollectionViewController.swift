@@ -16,6 +16,7 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: mealIdentifier)
+        self.selectedDate = todaysDate
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeLeft.direction = .left
         self.view.addGestureRecognizer(swipeLeft)
@@ -41,10 +42,9 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     private func updateViews() {
         //guard isViewLoaded else { return }
-        setDate()
         setupFetchedResultsController()
+        setDate()
         collectionView.reloadData()
-        
     }
     
     private func configureTitleView() {
@@ -92,14 +92,12 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     let calendar = Calendar.current
     
     private func changeDate(dateOperator: DateOperator) -> String {
-        i += dateOperator.rawValue
-        let calendar = Calendar.current
-        let now = calendar.startOfDay(for: Date())
+        let now = self.selectedDate != nil ? self.selectedDate : todaysDate
         var components = DateComponents()
         components.calendar = calendar
-        components.day = i
-        self.selectedDate = calendar.date(byAdding: components, to: now)!
-        return formattedDate(date: self.selectedDate ?? todaysDate)
+        components.day = dateOperator.rawValue
+        self.selectedDate = calendar.date(byAdding: components, to: now!)!
+        return formattedDate(date: self.selectedDate!)
     }
     
     @IBAction func goToNextDay(_ sender: Any?) {

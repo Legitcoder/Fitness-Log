@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol UserControllerProtocol {
+protocol UserProtocol {
     var userController: UserController? {get set}
+    var user: User? {get set}
 }

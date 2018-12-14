@@ -24,8 +24,11 @@ class FitnessLogTabBarViewController: UITabBarController {
                     initialVC.mealController = mealController
                     initialVC.entryController = entryController
                     initialVC.userController = userController
-                } else if var caloriesVC = navVC.topViewController as? UserControllerProtocol {
+                } else if var caloriesVC = navVC.topViewController as? UserProtocol {
                     caloriesVC.userController = userController
+                    if let user = user {
+                        caloriesVC.user = user
+                    }
                 }
             }
         }

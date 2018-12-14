@@ -241,6 +241,7 @@
                         <outlet property="buttonDrop" destination="LlW-GG-tgq" id="emM-j9-uBN"/>
                         <outlet property="heightFeetTextField" destination="6uv-WD-V3t" id="aEG-tO-X7C"/>
                         <outlet property="heightInchesTextField" destination="EPW-DG-Yjc" id="0cY-Or-OOH"/>
+                        <outlet property="maintenanceCaloriesLabel" destination="jlq-hd-Cxo" id="wD9-le-3Tm"/>
                         <outlet property="tableView" destination="Kf9-h0-RUL" id="6UP-A8-5pI"/>
                         <outlet property="weightTextField" destination="Eau-Ts-H6f" id="NiE-CV-yZ7"/>
                     </connections>
@@ -413,7 +414,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rIe-pO-yl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="o6c-CV-veS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="19" y="-89"/>
+            <point key="canvasLocation" x="49" y="248"/>
         </scene>
         <!--Fitness Log Tab Bar View Controller-->
         <scene sceneID="X3g-lq-3or">

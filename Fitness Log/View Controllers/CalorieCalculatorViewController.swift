@@ -22,12 +22,14 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     
+    @IBOutlet weak var maintenanceCaloriesLabel: UILabel!
+    
     @IBOutlet weak var heightFeetTextField: UITextField!
     
     @IBOutlet weak var heightInchesTextField: UITextField!
     
     var gender: String = "Male"
-    var activityLevels = ["\(ActivityLevel.Sedentary)\n(No Exercise)", "\(ActivityLevel.Light)\n(1-3 Days)", "\(ActivityLevel.Moderate)\n(3-4 Days)", "\(ActivityLevel.Intense)\n(5-7 Days)"]
+    var activityLevels = [ActivityLevel.Sedentary.rawValue, ActivityLevel.Light.rawValue, ActivityLevel.Moderate.rawValue, ActivityLevel.Intense.rawValue]
     
     @IBAction func chooseGender(_ sender: DLRadioButton) {
         gender = sender.tag == 1 ? "Male" : "Female"
@@ -43,6 +45,7 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
         heightFeetTextField.text = feet
         heightInchesTextField.text = inches
         buttonDrop.setTitle(user.activityLevel, for: .normal)
+        maintenanceCaloriesLabel.text = "\(user.maintenanceCalories) Calories"
     }
     
     func weightInKG(weight: Int16) -> Double {
@@ -64,8 +67,20 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
         }
     }
     
-    func calculateActivityLevelMultiplier() -> Double {
-        return 0.05
+    func calculateActivityLevelMultiplier(activityLevel: String) -> Double {
+        switch buttonDrop.titleLabel?.text {
+        case ActivityLevel.Sedentary.rawValue:
+            return 1.2
+        case ActivityLevel.Light.rawValue:
+            return 1.375
+        case ActivityLevel.Moderate.rawValue:
+            return 1.55
+        case ActivityLevel.Intense.rawValue:
+            return 1.725
+        default:
+            return 0
+            
+        }
     }
     
     @IBAction func saveMaintenanceCalories(_ sender: Any) {
@@ -79,11 +94,14 @@ class CalorieCalculatorViewController: UIViewController, UserControllerProtocol 
                 let activityLevel = buttonDrop.titleLabel?.text,
                 let weight = weightTextField.text
                 else { return }
-            let heighInInches = (Int16(feet)! * 12) + Int16(inches)!
-            let heightCm = heightInCm(inches: heighInInches)
+            let heightInInches = (Int16(feet)! * 12) + Int16(inches)!
+            let heightCm = heightInCm(inches: heightInInches)
             let weightKg = weightInKG(weight: Int16(weight)!)
             let BMR = calculatorBMR(weight: Int16(weightKg), height: Int16(heightCm), age: Int16(age)!)
-            userController?.createUser(age: Int16(age)!, activityLevel: activityLevel, weight: Int16(age)!, gender: gender, maintenanceCalories: 23, height: heighInInches)
+            let multiplier = calculateActivityLevelMultiplier(activityLevel: activityLevel)
+            let maintenance = BMR * multiplier
+            let user = userController?.createUser(age: Int16(age)!, activityLevel: activityLevel, weight: Int16(weight)!, gender: gender, maintenanceCalories: Int16(maintenance), height: heightInInches)
+            self.user = user
         }
     }
     

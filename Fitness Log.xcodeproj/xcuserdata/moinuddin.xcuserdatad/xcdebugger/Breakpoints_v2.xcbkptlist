@@ -10,12 +10,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Fitness Log/View Controllers/FitnessLogsCollectionViewController.swift"
-            timestampString = "566439564.8889869"
+            timestampString = "566446878.570789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
             landmarkName = "comingFromFitnessLogCollectionUnwindSegue(segue:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Fitness Log/View Controllers/CalorieCalculatorViewController.swift"
+            timestampString = "566446878.570871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "saveMaintenanceCalories(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

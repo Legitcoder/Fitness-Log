@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FitnessLogTabBarViewController: UITabBarController {
 
@@ -29,6 +30,26 @@ class FitnessLogTabBarViewController: UITabBarController {
             }
         }
     }
+    
+    var user: User? {
+        return users.first
+    }
+    
+    var users: [User] {
+        
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        
+        let moc = CoreDataStack.shared.mainContext
+        
+        do {
+            return try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching users from moc: \(error)")
+            return []
+        }
+    }
+    
+    
     
     let exerciseController = ExerciseController()
     let userController = UserController()

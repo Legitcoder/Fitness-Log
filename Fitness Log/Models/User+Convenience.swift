@@ -18,6 +18,7 @@ extension User {
         self.activityLevel = activityLevel
         self.weight = weight
         self.gender = gender
+        self.height = height
     }
     
 }

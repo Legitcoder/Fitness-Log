@@ -9,6 +9,7 @@
 import UIKit
 import JTAppleCalendar
 import CoreData
+
 class CalendarViewController: UIViewController {
 
     @IBOutlet weak var year: UILabel!
@@ -173,9 +174,6 @@ extension CalendarViewController: JTAppleCalendarViewDelegate {
             }
 
         }
-
-
-        
         return cell
     }
     

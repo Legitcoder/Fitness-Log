@@ -129,7 +129,6 @@
 				A19274B521BF5ECF009E33FD /* MealDetailViewController.swift */,
 				A192747B21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift */,
 				A19274B321BF5EB8009E33FD /* ExerciseDetailViewController.swift */,
-				A19274C621C0CCDD009E33FD /* CustomCell.swift */,
 				A192747921BC8DE1009E33FD /* FitnessLogsCollectionViewController.swift */,
 				A192747F21BCB77E009E33FD /* CalorieCalculatorViewController.swift */,
 				A19274AF21BF44C1009E33FD /* ExerciseCollectionViewCell.swift */,
@@ -198,6 +197,7 @@
 			children = (
 				A19274BB21C09F67009E33FD /* DLRadioButton.h */,
 				A19274BC21C09F68009E33FD /* DLRadioButton.m */,
+				A19274C621C0CCDD009E33FD /* CustomCell.swift */,
 				A19274B821BF8A96009E33FD /* SectionHeader.swift */,
 			);
 			path = "Custom Classes";

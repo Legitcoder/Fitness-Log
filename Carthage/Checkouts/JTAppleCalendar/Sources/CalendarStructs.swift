@@ -1,25 +1,9 @@
 //
 //  CalendarStructs.swift
+//  JTAppleCalendar
 //
-//  Copyright (c) 2016-2017 JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
+//  Created by JayT on 2016-10-02.
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
 //
 
 
@@ -56,12 +40,9 @@ public struct CellState {
     public let dateSection: () -> (range: (start: Date, end: Date), month: Int, rowCount: Int)
     /// returns the position of a selection in the event you wish to do range selection
     public let selectedPosition: () -> SelectionRangePosition
-    /// returns the cell.
+    /// returns the cell frame.
     /// Useful if you wish to display something at the cell's frame/position
     public var cell: () -> JTAppleCell?
-    /// Shows if a cell's selection/deselection was done either programatically or by the user
-    /// This variable is guranteed to be non-nil inside of a didSelect/didDeselect function
-    public var selectionType: SelectionType? = nil
 }
 
 /// Defines the parameters which configures the calendar.
@@ -88,30 +69,33 @@ public struct ConfigurationParameters {
     /// init-function
     public init(startDate: Date,
                 endDate: Date,
-                numberOfRows: Int = 6,
-                calendar: Calendar = Calendar.current,
-                generateInDates: InDateCellGeneration = .forAllMonths,
-                generateOutDates: OutDateCellGeneration = .tillEndOfGrid,
-                firstDayOfWeek: DaysOfWeek = .sunday,
+                numberOfRows: Int? = nil,
+                calendar: Calendar? = nil,
+                generateInDates: InDateCellGeneration? = nil,
+                generateOutDates: OutDateCellGeneration? = nil,
+                firstDayOfWeek: DaysOfWeek? = nil,
                 hasStrictBoundaries: Bool? = nil) {
         self.startDate = startDate
         self.endDate = endDate
-
-        if numberOfRows > 0 && numberOfRows < 7 {
-            self.numberOfRows = numberOfRows
-        } else {
-            self.numberOfRows = 6
+        self.numberOfRows = 6
+        
+        if let validNumberOfRows = numberOfRows {
+            switch validNumberOfRows {
+            case 1, 2, 3:
+                self.numberOfRows = validNumberOfRows
+            default:
+                break
+            }
         }
-
         if let nonNilHasStrictBoundaries = hasStrictBoundaries {
             self.hasStrictBoundaries = nonNilHasStrictBoundaries
         } else {
             self.hasStrictBoundaries = self.numberOfRows > 1 ? true : false
         }
-        self.calendar = calendar
-        self.generateInDates = generateInDates
-        self.generateOutDates = generateOutDates
-        self.firstDayOfWeek = firstDayOfWeek
+        self.calendar = calendar ?? Calendar.current
+        self.generateInDates = generateInDates ?? .forAllMonths
+        self.generateOutDates = generateOutDates ?? .tillEndOfGrid
+        self.firstDayOfWeek = firstDayOfWeek ?? .sunday
     }
 }
 
@@ -135,7 +119,7 @@ struct CalendarData {
 }
 
 /// Defines a month structure.
-public struct Month {
+struct Month {
 
     /// Start index day for the month.
     /// The start is total number of days of previous months
@@ -150,22 +134,22 @@ public struct Month {
     let sections: [Int]
 
     /// Number of inDates for this month
-    public let inDates: Int
+    let inDates: Int
 
     /// Number of outDates for this month
-    public let outDates: Int
+    let outDates: Int
 
     /// Maps a section to the index in the total number of sections
     let sectionIndexMaps: [Int: Int]
 
     /// Number of rows for the month
-    public let rows: Int
+    let rows: Int
     
     /// Name of the month
-    public let name: MonthsOfYear
+    let name: MonthsOfYear
 
     // Return the total number of days for the represented month
-    public let numberOfDaysInMonth: Int
+    var numberOfDaysInMonth: Int
 
     // Return the total number of day cells
     // to generate for the represented month
@@ -176,6 +160,20 @@ public struct Month {
     var startSection: Int {
         return sectionIndexMaps.keys.min()!
     }
+
+//    func firstIndexPathForExternal(section: Int) -> IndexPath? {
+//        guard let internalSection = sectionIndexMaps[section] else {
+//            return nil
+//        }
+//        if internalSection == 0 {
+//            // Then we need to consider predates
+//            return indexPath(forDay: 1 - inDates)
+//        } else {
+//            let startDay = startDayFor(section: internalSection)!
+//            let path = indexPath(forDay: startDay)
+//            return path
+//        }
+//    }
     
     // Return the section in which a day is contained
     func indexPath(forDay number: Int) -> IndexPath? {
@@ -241,6 +239,27 @@ public struct Month {
         }
         return (startIndex: startIndex, endIndex: endIndex)
     }
+    
+//    func startDayFor(section: Int) -> Int? {
+//        var retval: Int?
+//        
+//        if !(0..<sections.count ~= section)  {
+//            return nil
+//        }
+//        if section == 0 {
+//            retval = 1
+//        } else {
+//            var diff: Int = 0
+//            for (index, _) in sections.enumerated() {
+//                guard let bounds = boundaryIndicesFor(section: index), index < section else {
+//                    break
+//                }
+//                diff += bounds.endIndex - bounds.startIndex + 1
+//            }
+//            retval = diff + 1
+//        }
+//        return retval
+//    }
 }
 
 struct JTAppleDateConfigGenerator {
@@ -366,30 +385,4 @@ public struct DateSegmentInfo {
     public let monthDates: [(date: Date, indexPath: IndexPath)]
     /// Visible post-dates
     public let outdates: [(date: Date, indexPath: IndexPath)]
-}
-
-struct SelectedCellData {
-    let indexPath: IndexPath
-    let date: Date
-    var counterIndexPath: IndexPath?
-    let cellState: CellState
-    
-    enum DateOwnerCategory {
-        case inDate, outDate, monthDate
-    }
-    
-    var dateBelongsTo: DateOwnerCategory {
-        switch cellState.dateBelongsTo {
-        case .thisMonth: return .monthDate
-        case .previousMonthOutsideBoundary, .previousMonthWithinBoundary: return .inDate
-        case .followingMonthWithinBoundary, .followingMonthOutsideBoundary: return .outDate
-        }
-    }
-    
-    init(indexPath: IndexPath, counterIndexPath: IndexPath? = nil, date: Date, cellState: CellState) {
-        self.indexPath        = indexPath
-        self.date             = date
-        self.cellState        = cellState
-        self.counterIndexPath = counterIndexPath
-    }
 }

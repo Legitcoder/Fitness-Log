@@ -1,0 +1,18 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "1.4.12",
+  "iOS" : [
+    {
+      "name" : "DLRadioButton",
+      "hash" : "8c1673a231463a82522e59387b11135d55d693b6306be01b5a4a64fc056541bc"
+    }
+  ]
+}

@@ -10,7 +10,6 @@
 import JTAppleCalendar
 
 class CellView: JTAppleCell {
-    @IBOutlet var selectedView: UIView!
+    @IBOutlet var selectedView: AnimationView!
     @IBOutlet var dayLabel: UILabel!
-    @IBOutlet var monthLabel: UILabel!
 }

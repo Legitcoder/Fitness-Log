@@ -34,6 +34,3 @@ Carthage
 #xcshareddata
 /.swiftlint.yml
 /JTAppleCalendar.xcworkspace/xcshareddata/JTAppleCalendar.xcscmblueprint
-/JTAppleCalendar.xcworkspace/xcshareddata
-/.swift-version
-/Index

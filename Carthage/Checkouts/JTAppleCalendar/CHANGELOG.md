@@ -3,8 +3,7 @@ All notable changes to this project will be documented in this file.
 `JTAppleCalendar` adheres to [Semantic Versioning](http://semver.org/).
 
 #### 7.x Releases
-- `7.1.0` Releases - [7.1.0](#710)|[7.1.1](#711)|[7.1.2](#712)|[7.1.3](#713)|[7.1.4](#714)|[7.1.5](#715)
-- `7.0.0` Releases - [7.0.0](#700)|[7.0.1](#701)|[7.0.2](#702)|[7.0.3](#703)|[7.0.4](#704)|[7.0.5](#705)|[7.0.6](#706)
+- `7.0.0` Releases - [7.0.0](#700)
 
 #### 6.x Releases
 - `6.1.0` Releases - [6.1.0](#610)|[6.1.1](#611)|[6.1.2](#612)|[6.1.3](#613)|[6.1.4](#614)|[6.1.5](#615)|[6.1.6](#616)
@@ -30,64 +29,7 @@ All notable changes to this project will be documented in this file.
 - `1.0.x` Releases - [1.0.0](#100)
 
 ---
-## [7.1.5](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.1.5)
-- Fixed inset bug #419
-- Fixed unowned Crash #624
-
-- Updated by [JayT](https://github.com/patchthecode).
-## [7.1.4](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.1.4)
-- Fixed [programatic selection bug](https://github.com/patchthecode/JTAppleCalendar/commit/de5f0023fb6b157bddb2afa9637c7be0a1bbc636)
-- Updated by [JayT](https://github.com/patchthecode).
-
-## [7.1.3](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.1.3)
-- Fixed rounding error
-- Updated by [JayT](https://github.com/patchthecode).
-
-## [7.1.2](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.1.2)
-- Fixed rounding error - https://github.com/patchthecode/JTAppleCalendar/commit/c4059147f03695b66a044c16cc4f0ec67d87eae2
-    - Updated by [JayT](https://github.com/patchthecode).
-
-## [7.1.1](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.1.1)
-- Fixed errors - https://github.com/patchthecode/JTAppleCalendar/issues/598
-
-## [7.1.0](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.1.0)
-- Fixed errors.
-- Made library compatible with iOS8
-- CellState now informs if library made programatic vs user selected tap on cell
-
-## [7.0.6](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.6)
-- [bug fix - accidentaly introduced in 7.0.5](https://github.com/patchthecode/JTAppleCalendar/commit/7f60c8c5b2265954ad0041ac4f150c6f4862cdb7)
-- Other code cleanup
-  - Updated by [JayT](https://github.com/patchthecode).
-  - Updated by [mayurdzk](https://github.com/mayurdzk).
-  - Updated by [mgurreta](https://github.com/mgurreta).
-
-## [7.0.5](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.5)
-- [bug fix](https://github.com/patchthecode/JTAppleCalendar/commit/bcbb2bc5696cb2f15a6e87e1023c3a9cdf3dfdff)
-- [added anchor dates on reload](https://github.com/patchthecode/JTAppleCalendar/commit/b81158dfd7600e1d31143be4fbfba32af2187253)
-   - Sometimes on reload you do not want to see scrolling. Anchor dates solved that problem.
-- [Fixed double reloading of calendar](https://github.com/patchthecode/JTAppleCalendar/commit/05c6f518de9484d19faba2ae2f7fba2ffb8e9cba)
-- [Fixed crash when resizing from zero height/width](https://github.com/patchthecode/JTAppleCalendar/commit/765d919bb91fa3817d79d78f735bee0b720f3ba3)
-- [Added function to get month data](https://github.com/patchthecode/JTAppleCalendar/commit/502d53d7a815f93e099bb2b81b4c4b6e125b26bb)
-
-## [7.0.4](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.4)
-- [Function signature change to fix issue on shouldSelect/shouldDeselect function](https://github.com/patchthecode/JTAppleCalendar/commit/64b2bd1aa8ecab97c8a2bc92020724e97702887a)
-- Reverted unavailability of isSelected on date cells.
-
-## [7.0.3](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.3)
-- [Changed order in which delegates are called](https://github.com/patchthecode/JTAppleCalendar/issues/431)
-- [Fixed recursive loop error](https://github.com/patchthecode/JTAppleCalendar/commit/e95ec9806ef932a619329b3f40062ad125b4a17e)
-- [Potential crash fix. Incorrectly used statdard function instead of custom](https://github.com/patchthecode/JTAppleCalendar/commit/3cbfab2382ccb7168a5c22e0081504f43d0d76e6)
-- [ShouldSelect should be called on programatic selection](https://github.com/patchthecode/JTAppleCalendar/commit/4f528d17842848bf3cca4b80ce2fb89958caf614)
-
-## [7.0.2](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.2)
-- [Fixed visible scrolling issue](https://github.com/patchthecode/JTAppleCalendar/issues/263)
-- Added check if dev forcefully calls layoutIfNeeded(). Layout should be re-created.
-
-## [7.0.1](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.1)
-- Quickfix for Charthage users. Correct header file was included. 
-
-## [7.0.0](https://github.com/patchthecode/JTAppleCalendar/releases/tag/7.0.0)
+## [7.0.0](https://github.com/patchthecode/JTAppleCalendar/releases/tag/6.1.5)
 - Massive changes and minor bug fixes 
    - JTAppleCalendar is now a UICollectionView subclass and can be designed on interface builder.
    - Months sections distance is now configurable

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A12333FF21C87BC10046D4A3 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12333FE21C87BC10046D4A3 /* DLRadioButton.framework */; };
+		A123340121C880680046D4A3 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123340021C880680046D4A3 /* Gender.swift */; };
 		A192746821BC8105009E33FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192746721BC8105009E33FD /* AppDelegate.swift */; };
 		A192746D21BC8105009E33FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A192746B21BC8105009E33FD /* Main.storyboard */; };
 		A192746F21BC8106009E33FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A192746E21BC8106009E33FD /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		A12333FE21C87BC10046D4A3 /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLRadioButton.framework; path = Carthage/Build/iOS/DLRadioButton.framework; sourceTree = "<group>"; };
+		A123340021C880680046D4A3 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		A192746421BC8105009E33FD /* Fitness Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A192746721BC8105009E33FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A192746C21BC8105009E33FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				A19274AD21BE0405009E33FD /* DateOperator.swift */,
 				A19274BE21C0BB79009E33FD /* ActivityLevel.swift */,
+				A123340021C880680046D4A3 /* Gender.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				A192748C21BCC534009E33FD /* EntryController.swift in Sources */,
 				A19274B921BF8A96009E33FD /* SectionHeader.swift in Sources */,
 				A19274B621BF5ECF009E33FD /* MealDetailViewController.swift in Sources */,
+				A123340121C880680046D4A3 /* Gender.swift in Sources */,
 				A192748621BCBE55009E33FD /* ExerciseController.swift in Sources */,
 				A19274B221BF4528009E33FD /* MealCollectionViewCell.swift in Sources */,
 				A19274C521C0CA38009E33FD /* CalendarViewController.swift in Sources */,

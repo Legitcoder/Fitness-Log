@@ -239,9 +239,11 @@
                     <connections>
                         <outlet property="ageTextField" destination="GUw-vE-hhQ" id="dyn-U7-Acw"/>
                         <outlet property="buttonDrop" destination="LlW-GG-tgq" id="emM-j9-uBN"/>
+                        <outlet property="femaleRadioButton" destination="mnU-2J-f2w" id="WxN-d7-bgq"/>
                         <outlet property="heightFeetTextField" destination="6uv-WD-V3t" id="aEG-tO-X7C"/>
                         <outlet property="heightInchesTextField" destination="EPW-DG-Yjc" id="0cY-Or-OOH"/>
                         <outlet property="maintenanceCaloriesLabel" destination="jlq-hd-Cxo" id="wD9-le-3Tm"/>
+                        <outlet property="maleRadioButton" destination="lTL-Kp-IoP" id="N8h-1k-qke"/>
                         <outlet property="tableView" destination="Kf9-h0-RUL" id="6UP-A8-5pI"/>
                         <outlet property="weightTextField" destination="Eau-Ts-H6f" id="NiE-CV-yZ7"/>
                     </connections>
@@ -346,7 +348,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGc-zf-iBK">
-                                                            <rect key="frame" x="46" y="94" width="40" height="40"/>
+                                                            <rect key="frame" x="46" y="47" width="40" height="40"/>
                                                             <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="LgB-Tr-Cuc"/>
@@ -359,7 +361,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SUE-ng-RT3">
-                                                            <rect key="frame" x="45" y="103.5" width="42" height="21"/>
+                                                            <rect key="frame" x="45" y="56.5" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -583,7 +585,7 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="kFZ-bc-0Uy" customClass="SectionHeader" customModule="Fitness_Log" customModuleProvider="target">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="kFZ-bc-0Uy" customClass="SectionHeader" customModule="Fitness_Log" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>

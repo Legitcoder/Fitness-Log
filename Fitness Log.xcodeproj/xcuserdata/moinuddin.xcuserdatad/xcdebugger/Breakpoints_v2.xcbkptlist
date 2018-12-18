@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Fitness Log/View Controllers/ExerciseDetailViewController.swift"
-            timestampString = "566524691.053123"
+            filePath = "Fitness Log/View Controllers/CalorieCalculatorViewController.swift"
+            timestampString = "566795852.82234"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "saveExercise(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Fitness Log/View Controllers/ExerciseDetailViewController.swift"
-            timestampString = "566524691.0532171"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "saveExercise(_:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "chooseGender(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

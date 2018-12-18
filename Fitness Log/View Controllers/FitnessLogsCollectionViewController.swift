@@ -97,7 +97,8 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
         components.calendar = calendar
         components.day = dateOperator.rawValue
         self.selectedDate = calendar.date(byAdding: components, to: now!)!
-        return formattedDate(date: self.selectedDate!)
+        let date = self.selectedDate!
+        return formattedDate(date: date)
     }
     
     @IBAction func goToNextDay(_ sender: Any?) {
@@ -108,9 +109,10 @@ class FitnessLogsCollectionViewController: UICollectionViewController, FitnessLo
     
     private func formattedDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, Y"
-        let date = dateFormatter.string(from: date)
-        return date
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "MMM d, yyyy"
+        let newDate = dateFormatter.string(from: date)
+        return newDate
     }
     
     @IBAction func goToPreviousDay(_ sender: Any?) {

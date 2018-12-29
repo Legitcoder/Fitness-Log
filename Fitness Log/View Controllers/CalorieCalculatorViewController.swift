@@ -101,24 +101,27 @@ class CalorieCalculatorViewController: UIViewController, UserProtocol {
     }
     
     @IBAction func saveMaintenanceCalories(_ sender: Any) {
+        guard let age = ageTextField.text,
+            let feet = heightFeetTextField.text,
+            let inches = heightInchesTextField.text,
+            let activityLevel = buttonDrop.titleLabel?.text,
+            let weight = weightTextField.text
+            else { return }
+        let heightInInches = (Int16(feet)! * 12) + Int16(inches)!
+        let heightCm = heightInCm(inches: heightInInches)
+        let weightKg = weightInKG(weight: Int16(weight)!)
+        let BMR = calculatorBMR(weight: Int16(weightKg), height: Int16(heightCm), age: Int16(age)!)
+        let multiplier = calculateActivityLevelMultiplier(activityLevel: activityLevel)
+        let maintenance = BMR * multiplier
         if let user = user {
-            
+            //Update Current User attributes
+            userController?.updateUser(user: user, age: Int16(age)!, activityLevel: activityLevel, weight: Int16(weight)!, gender: gender.rawValue, maintenanceCalories: Int16(maintenance), height: heightInInches)
+            updateViews()
         } else {
             //Create New User
-            guard let age = ageTextField.text,
-                let feet = heightFeetTextField.text,
-                let inches = heightInchesTextField.text,
-                let activityLevel = buttonDrop.titleLabel?.text,
-                let weight = weightTextField.text
-                else { return }
-            let heightInInches = (Int16(feet)! * 12) + Int16(inches)!
-            let heightCm = heightInCm(inches: heightInInches)
-            let weightKg = weightInKG(weight: Int16(weight)!)
-            let BMR = calculatorBMR(weight: Int16(weightKg), height: Int16(heightCm), age: Int16(age)!)
-            let multiplier = calculateActivityLevelMultiplier(activityLevel: activityLevel)
-            let maintenance = BMR * multiplier
             let user = userController?.createUser(age: Int16(age)!, activityLevel: activityLevel, weight: Int16(weight)!, gender: gender.rawValue, maintenanceCalories: Int16(maintenance), height: heightInInches)
             self.user = user
+            updateViews()
         }
     }
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A12333FF21C87BC10046D4A3 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12333FE21C87BC10046D4A3 /* DLRadioButton.framework */; };
 		A123340121C880680046D4A3 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123340021C880680046D4A3 /* Gender.swift */; };
+		A123340321D5E5760046D4A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123340221D5E5760046D4A3 /* SettingsViewController.swift */; };
 		A192746821BC8105009E33FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192746721BC8105009E33FD /* AppDelegate.swift */; };
 		A192746D21BC8105009E33FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A192746B21BC8105009E33FD /* Main.storyboard */; };
 		A192746F21BC8106009E33FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A192746E21BC8106009E33FD /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		A12333FE21C87BC10046D4A3 /* DLRadioButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DLRadioButton.framework; path = Carthage/Build/iOS/DLRadioButton.framework; sourceTree = "<group>"; };
 		A123340021C880680046D4A3 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		A123340221D5E5760046D4A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A192746421BC8105009E33FD /* Fitness Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fitness Log.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A192746721BC8105009E33FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A192746C21BC8105009E33FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				A192747F21BCB77E009E33FD /* CalorieCalculatorViewController.swift */,
 				A19274AF21BF44C1009E33FD /* ExerciseCollectionViewCell.swift */,
 				A19274B121BF4528009E33FD /* MealCollectionViewCell.swift */,
+				A123340221D5E5760046D4A3 /* SettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				A192747C21BCB5D5009E33FD /* FitnessLogTabBarViewController.swift in Sources */,
 				A19274BF21C0BB79009E33FD /* ActivityLevel.swift in Sources */,
 				A192749E21BCD8FC009E33FD /* Entry+Convenience.swift in Sources */,
+				A123340321D5E5760046D4A3 /* SettingsViewController.swift in Sources */,
 				A192746821BC8105009E33FD /* AppDelegate.swift in Sources */,
 				A192749C21BCD898009E33FD /* Exercise+Convenience.swift in Sources */,
 				A192749321BCC7FF009E33FD /* FitnessLogProtocol.swift in Sources */,

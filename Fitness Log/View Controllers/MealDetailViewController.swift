@@ -8,9 +8,10 @@
 
 import UIKit
 
-class MealDetailViewController: UIViewController {
+class MealDetailViewController: UIViewController, UITextFieldDelegate {
 
     let resizeConstant: CGFloat = 0.50
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let textFields: [UITextField] = [nameTextField, caloriesTextField, carbsTextField, proteinTextField]

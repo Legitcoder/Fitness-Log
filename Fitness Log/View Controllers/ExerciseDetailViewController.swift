@@ -10,10 +10,18 @@ import UIKit
 
 class ExerciseDetailViewController: UIViewController {
 
+    let resizeConstant: CGFloat = 0.50
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        let textFields: [UITextField] = [nameTextField, repsTextField, setsTextField, weightTextField]
+        setupLabelSizing(textFields: textFields)
+    }
+    
+    func setupLabelSizing(textFields: [UITextField]) {
+        for textField in textFields {
+            textField.font = textField.font?.withSize((textField.frame.height) * resizeConstant)
+        }
     }
     
     @IBOutlet weak var nameTextField: UITextField!

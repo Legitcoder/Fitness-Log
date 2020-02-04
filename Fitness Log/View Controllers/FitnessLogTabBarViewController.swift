@@ -19,27 +19,30 @@ class FitnessLogTabBarViewController: UITabBarController {
     func passControllersToChildViewControllers() {
         for childVC in children {
             if let navVC = childVC as? UINavigationController {
+                //To Collection View of All Workouts Tab(Default Initial Tab)
                 if var initialVC = navVC.topViewController as? FitnessLogProtocol {
                     initialVC.exerciseController = exerciseController
                     initialVC.mealController = mealController
                     initialVC.entryController = entryController
                     initialVC.userController = userController
                 } else if var caloriesVC = navVC.topViewController as? UserProtocol {
+                    //To Edit Maintenance Calories Tab
                     caloriesVC.userController = userController
-                    if let user = user {
-                        caloriesVC.user = user
-                    }
+                    caloriesVC.user = user
                 }
             }
         }
     }
     
-    var user: User? {
-        return users.first
+
+    //Creates Initial User if it doesn't exist
+    //TODO: Have it so a pop up forces User to enter information if User doesn't exist
+    //in other words, it's their first time using the application
+    var user: User {
+        return users.first ?? userController.createUser(age: 25, activityLevel: ActivityLevel.Moderate.rawValue, weight: 170, gender: Gender.Male.rawValue, maintenanceCalories: 3000, height: 69)
     }
     
     var users: [User] {
-        
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         
         let moc = CoreDataStack.shared.mainContext
@@ -47,7 +50,7 @@ class FitnessLogTabBarViewController: UITabBarController {
         do {
             return try moc.fetch(fetchRequest)
         } catch {
-            NSLog("Error fetching users from moc: \(error)")
+            NSLog("Error fetching User")
             return []
         }
     }

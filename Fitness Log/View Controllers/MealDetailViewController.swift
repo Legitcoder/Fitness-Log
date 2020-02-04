@@ -10,10 +10,18 @@ import UIKit
 
 class MealDetailViewController: UIViewController {
 
+    let resizeConstant: CGFloat = 0.50
     override func viewDidLoad() {
         super.viewDidLoad()
+        let textFields: [UITextField] = [nameTextField, caloriesTextField, carbsTextField, proteinTextField]
+        setupLabelSizing(textFields: textFields)
+    }
+    
+    func setupLabelSizing(textFields: [UITextField]) {
+        for textField in textFields {
+            textField.font = textField.font?.withSize((textField.frame.height) * resizeConstant)
+        }
 
-        // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var nameTextField: UITextField!

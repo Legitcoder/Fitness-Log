@@ -1,3 +1,4 @@
+
 //
 //  CalorieCalculatorViewController.swift
 //  Fitness Log
@@ -5,7 +6,6 @@
 //  Created by Moin Uddin on 12/8/18.
 //  Copyright © 2018 Moin Uddin. All rights reserved.
 //
-
 import UIKit
 import DLRadioButton
 class CalorieCalculatorViewController: UIViewController, UserProtocol {
@@ -166,5 +166,3 @@ extension CalorieCalculatorViewController: UITableViewDelegate, UITableViewDataS
     
     
 }
-
-

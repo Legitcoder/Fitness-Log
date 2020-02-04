@@ -7,7 +7,6 @@
 //  Copyright © 2018 Moin Uddin. All rights reserved.
 //
 import UIKit
-import DLRadioButton
 class CalorieCalculatorViewController: UIViewController, UserProtocol {
     
     override func viewDidLoad() {
@@ -29,17 +28,13 @@ class CalorieCalculatorViewController: UIViewController, UserProtocol {
     
     @IBOutlet weak var heightInchesTextField: UITextField!
     
-    @IBOutlet weak var maleRadioButton: DLRadioButton!
-    
-    @IBOutlet weak var femaleRadioButton: DLRadioButton!
+
     
     
     var gender = Gender.Male
     var activityLevels = [ActivityLevel.Sedentary.rawValue, ActivityLevel.Light.rawValue, ActivityLevel.Moderate.rawValue, ActivityLevel.Intense.rawValue]
     
-    @IBAction func chooseGender(_ sender: DLRadioButton) {
-        gender = sender.tag == 1 ? Gender.Male :  Gender.Female
-    }
+
     func updateViews() {
         guard let user = user, isViewLoaded else {
             NSLog("Optional User in CalorieCalculatorViewController wasn't Set")
@@ -57,9 +52,9 @@ class CalorieCalculatorViewController: UIViewController, UserProtocol {
         
         switch user.gender {
         case Gender.Male.rawValue:
-            maleRadioButton.isSelected = true
+            return
         case Gender.Female.rawValue:
-            femaleRadioButton.isSelected = true
+            return
         default:
             return
         }

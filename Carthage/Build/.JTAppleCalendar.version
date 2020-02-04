@@ -8,7 +8,7 @@
   "tvOS" : [
     {
       "name" : "JTAppleCalendar",
-      "hash" : "ca66275d3cf5b47986fdfb31ea4316e0ca8778075865bec229833ed4ec064f2a",
+      "hash" : "03b19a641bc35d8b7201a6c6136f53e34b7fe3ae8ee18c1bbc95f3f81cbd2b8a",
       "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
     }
   ],
@@ -16,7 +16,7 @@
   "iOS" : [
     {
       "name" : "JTAppleCalendar",
-      "hash" : "215d2091e0451380efaf92a3ebf7a0078fce5581d02d1518fccc9c06e04f38f3",
+      "hash" : "f7d38000de1f9973fe3119c3fe3e51c26054943d1fbb71c2e11c0fc74f894d52",
       "swiftToolchainVersion" : "5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
     }
   ]

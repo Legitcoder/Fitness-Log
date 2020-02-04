@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A12333FF21C87BC10046D4A3 /* DLRadioButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12333FE21C87BC10046D4A3 /* DLRadioButton.framework */; };
 		A123340121C880680046D4A3 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123340021C880680046D4A3 /* Gender.swift */; };
 		A123340321D5E5760046D4A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123340221D5E5760046D4A3 /* SettingsViewController.swift */; };
 		A192746821BC8105009E33FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192746721BC8105009E33FD /* AppDelegate.swift */; };
@@ -86,7 +85,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19274C221C0C912009E33FD /* JTAppleCalendar.framework in Frameworks */,
-				A12333FF21C87BC10046D4A3 /* DLRadioButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,13 +290,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/JTAppleCalendar.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/DLRadioButton.framework",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Carthage/Build/iOS/JTAppleCalendar.framework",
-				"$(DERIVED_FILE_DIR)/Carthage/Build/iOS/DLRadioButton.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

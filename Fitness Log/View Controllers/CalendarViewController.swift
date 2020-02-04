@@ -59,8 +59,9 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         calendarView.ibCalendarDelegate = self
         calendarView.calendarDataSource = self
-        calendarView.scrollToDate(Date(), animateScroll: false)
-        setupCalendarView()
+        let date = NSDate()
+        self.calendarView.scrollToDate(date as Date, animateScroll: false)
+        //setupCalendarView()
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState) {

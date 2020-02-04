@@ -81,7 +81,7 @@ extension UIView {
         
         
         let topRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-        topRotationAnimation.fillMode = kCAFillModeForwards
+        topRotationAnimation.fillMode = CAMediaTimingFillMode.forwards
         topRotationAnimation.isRemovedOnCompletion = false
         switch (inDirection) {
         case .open:
@@ -97,7 +97,7 @@ extension UIView {
         
         
         let bottomRotationAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-        bottomRotationAnimation.fillMode = kCAFillModeForwards;
+        bottomRotationAnimation.fillMode = CAMediaTimingFillMode.forwards;
         bottomRotationAnimation.isRemovedOnCompletion = false
         switch (inDirection) {
         case .open:
@@ -111,25 +111,25 @@ extension UIView {
         bottomHalfView.layer.add(bottomRotationAnimation, forKey:nil)
         
         let bottomTranslationAnimation = CABasicAnimation(keyPath: "transform.translation.y")
-        bottomTranslationAnimation.fillMode = kCAFillModeForwards
+        bottomTranslationAnimation.fillMode = CAMediaTimingFillMode.forwards
         bottomTranslationAnimation.isRemovedOnCompletion = false
         switch (inDirection) {
         case .open:
             bottomTranslationAnimation.fromValue = topHalfView.frame.minY
             bottomTranslationAnimation.toValue = 2 * bottomHalfView.frame.size.height
-            bottomTranslationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            bottomTranslationAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
             break;
         case .closed:
             bottomTranslationAnimation.fromValue = 2 * bottomHalfView.frame.size.height
             bottomTranslationAnimation.toValue = topHalfView.frame.minY
-            bottomTranslationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+            bottomTranslationAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         }
         
         //TODO: figure out a more precise timing function
         bottomHalfView.layer.add(bottomTranslationAnimation, forKey:nil)
         
         let opacityAnimation = CABasicAnimation(keyPath: "opacity")
-        opacityAnimation.fillMode = kCAFillModeForwards
+        opacityAnimation.fillMode = CAMediaTimingFillMode.forwards
         opacityAnimation.isRemovedOnCompletion = false
         switch (inDirection) {
         case .open:
@@ -189,7 +189,7 @@ class AnimationClass {
                 withDuration: 0.5,
                 delay: 0, usingSpringWithDamping: 0.3,
                 initialSpringVelocity: 0.1,
-                options: UIViewAnimationOptions.beginFromCurrentState,
+                options: UIView.AnimationOptions.beginFromCurrentState,
                 animations: {
                     view.transform = CGAffineTransform(scaleX: 1, y: 1)
                 },
